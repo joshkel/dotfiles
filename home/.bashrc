@@ -35,9 +35,13 @@ alias cdapp='cd /cygdrive/c/trunk/app'
 alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0"'
 alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/include"'
 alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/source"'
-fi
 
 alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
+
+if ! which svn; then
+fi
+
+fi
 
 export EDITOR=vim
 export PATH=$PATH:~/bin
@@ -47,6 +51,17 @@ export LUA_CPATH=";;/usr/local/lib/lua/5.1/?.so"
 if ! which ack >& /dev/null; then
 alias ack=ack-grep
 fi
+
+# ack aliases
+alias cgrep='ack --cc --cpp'
+alias hgrep='ack --hh'
+alias jgrep='ack --java'
+alias plgrep='ack --perl'
+alias pygrep='ack --python'
+alias phpgrep='ack --php'
+alias rbgrep='ack --ruby'
+
+alias histgrep='history | grep'
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
