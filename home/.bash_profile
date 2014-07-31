@@ -16,6 +16,12 @@ if [ -d ~/bin ] ; then
 fi
 PATH=~/perl:~/python:"${PATH}":/sbin:/usr/sbin
 
+# On OS X, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
+if [ -d /usr/local/opt/coreutils ]; then
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH
+    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+fi
+
 #JAVA_HOME=/usr/lib/jvm/java-6-sun
 #export JAVA_HOME
 

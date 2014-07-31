@@ -29,7 +29,7 @@ alias ls='ls -hF --color=tty'                 # classify files in colour
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 
 # Windows, Cygwin, Embarcadero RAD Studio
-if [ $(uname -o) == Cygwin ]; then
+if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
 export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
 alias cdapp='cd /cygdrive/c/trunk/app'
 alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0"'
@@ -37,10 +37,6 @@ alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/include"'
 alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/source"'
 
 alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
-
-if ! which svn; then
-fi
-
 fi
 
 export EDITOR=vim
@@ -62,6 +58,11 @@ alias phpgrep='ack --php'
 alias rbgrep='ack --ruby'
 
 alias histgrep='history | grep'
+
+# On OS X, use GNU stuff instead of OS X stuff, courtesy of Homebrew.
+if [ -d /usr/local/opt/findutils ]; then
+    alias find=gfind
+fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
