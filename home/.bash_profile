@@ -22,6 +22,6 @@ if [ -d /usr/local/opt/coreutils ]; then
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-#JAVA_HOME=/usr/lib/jvm/java-6-sun
-#export JAVA_HOME
+# Sample of explicitly setting Java for Debian / Ubuntu.  Not needed.
+#export JAVA_HOME=/usr/lib/jvm/java-6-sun
 

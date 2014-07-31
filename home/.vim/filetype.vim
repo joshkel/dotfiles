@@ -20,3 +20,8 @@ au BufNewFile,BufRead *.dti,*.DTI set ft=dosini
 " Delphi .BPG = Makefile
 au BufNewFile,BufRead *.bpg,*.BPG set ft=make|setlocal makeprg=make\ -f\ % 
 
+au BufNewFile,BufRead *.i set filetype=swig
+au BufNewFile,BufRead *.swg set filetype=swig
+
+au BufRead,BufNewFile *.proto setfiletype proto
+
