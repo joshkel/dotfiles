@@ -102,7 +102,7 @@ if which colormake >& /dev/null; then
     alias make=colormake
 fi
 
-if [ -x /usr/local/eclipse/eclispe ]; then
+if [ -x /usr/local/eclipse/eclipse ]; then
     alias eclipse=/usr/local/eclipse/eclipse
 fi
 
@@ -168,4 +168,5 @@ ulimit -c unlimited
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+homeshick --quiet refresh
 

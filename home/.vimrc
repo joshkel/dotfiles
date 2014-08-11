@@ -9,22 +9,28 @@ set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 if has("win32")
-  set gfn=Consolas:h11:cANSI
+    set gfn=Consolas:h11:cANSI
 
-  " VIM's default:
-  " set dir=.,c:\\tmp,c:\\temp
-  " My change:  (because Windows 7 rearranges folder windows whenever a .swp
-  " is added):
-  set dir=c:\\tmp,c:\\temp
+    " VIM's default:
+    " set dir=.,c:\\tmp,c:\\temp
+    " My change:  (because Windows 7 rearranges folder windows whenever a .swp
+    " is added):
+    set dir=c:\\tmp,c:\\temp
 endif
 
 if has('gui_running')
-  " Inline spellchecking in text mode is too noisy (no nice subtle graphics).
-  set spell
+    " Inline spell-checking in text mode is too noisy (no nice subtle graphics).
+    set spell
 else
-  " Disable X clipboard to not slow down by trying to connect to an X server.
-  set clipboard=exclude:.*
+    " Disable X clipboard to not slow down by trying to connect to an X server.
+    set clipboard=exclude:.*
 endif
+
+function ColorColumn()
+    if v:version >= 703
+        set colorcolumn=80
+    endif
+endfunction
 
 " Let % match, e.g., HTML tags
 source $VIMRUNTIME/macros/matchit.vim
@@ -44,9 +50,9 @@ au BufRead *.md set filetype=markdown
 " Disabled for now in favor of blanket statement above.
 "au FileType html set spell
 
-au FileType python set et colorcolumn=80
+au FileType python set et | exec ColorColumn()
 
-au FileType cpp set ts=2 sw=2 colorcolumn=80
+au FileType cpp set ts=2 sw=2 | exec ColorColumn()
 
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
