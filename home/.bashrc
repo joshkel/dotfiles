@@ -166,7 +166,11 @@ fi
 
 ulimit -c unlimited
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-homeshick --quiet refresh
+# Homeshick configuration. See the Homeshick tutorial.
+# Skip this if we're running in a git-less chroot.
+if which git >& /dev/null; then
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+    source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+    homeshick --quiet refresh
+fi
 
