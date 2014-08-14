@@ -27,7 +27,7 @@ else
 endif
 
 function ColorColumn()
-    if v:version >= 703
+    if v:version >= 703 && has('gui_running')
         set colorcolumn=80
     endif
 endfunction
