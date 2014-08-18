@@ -5,8 +5,9 @@
 # the default umask is set in /etc/login.defs
 #umask 022
 
-# include .bashrc if it exists
-if [ -f ~/.bashrc ]; then
+# Include .bashrc if it exists
+# See http://superuser.com/a/183980/4160
+if [[ $- == *i* && -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 

@@ -171,6 +171,8 @@ ulimit -c unlimited
 if which git >& /dev/null; then
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
     source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-    homeshick --quiet refresh
+    if [[ $- == *i* ]]; then
+        homeshick --quiet refresh
+    fi
 fi
 
