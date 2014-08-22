@@ -3,10 +3,13 @@ set ts=4 sw=4 is si et modeline
 set backspace=indent,eol,start
 set enc=utf-8
 set cpoptions=$
-filetype plugin on
+filetype plugin indent on
 
 set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+set hidden        " Leave hidden buffers open
+set history=100
 
 if has("win32")
     set gfn=Consolas:h11:cANSI
@@ -65,6 +68,8 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 hi ColorColumn guibg=#eeeeee
 
+map <leader>rr :source ~/.vimrc<CR>
+
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
 " respectively 
 map  ^[[D <Esc>:prev<CR>
@@ -74,6 +79,12 @@ map! ^[[C <Esc>:next<CR>
 nmap ^[[D :prev<CR>
 nmap ^[[C :next<CR>
 
-" TODO: See https://gist.github.com/ben336/4e4bc44d8135cfc43fc3
-" TODO: See http://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim/
+" Toggles "paste mode' (no autoindent)
+" http://nvie.com/posts/how-i-boosted-my-vim/
+set pastetoggle=<F2>
+
+" Other useful resources:
+" https://gist.github.com/ben336/4e4bc44d8135cfc43fc3
+" http://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim/
+" http://nvie.com/posts/how-i-boosted-my-vim/
 
