@@ -1,5 +1,5 @@
 syntax on
-set ts=4 sw=4 is si et modeline
+set ts=4 sw=4 is autoindent et modeline
 set backspace=indent,eol,start
 set enc=utf-8
 set cpoptions=$
@@ -84,6 +84,7 @@ nmap ^[[C :next<CR>
 set pastetoggle=<F2>
 
 " Other useful resources:
+" http://vim.wikia.com/wiki/Example_vimrc
 " https://gist.github.com/ben336/4e4bc44d8135cfc43fc3
 " http://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim/
 " http://nvie.com/posts/how-i-boosted-my-vim/
