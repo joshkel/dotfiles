@@ -11,6 +11,8 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set hidden        " Leave hidden buffers open
 set history=100
 
+set spell
+
 if has("win32")
     set gfn=Consolas:h11:cANSI
 
@@ -21,10 +23,7 @@ if has("win32")
     set dir=c:\\tmp,c:\\temp
 endif
 
-if has('gui_running')
-    " Inline spell-checking in text mode is too noisy (no nice subtle graphics).
-    set spell
-else
+if !has('gui_running')
     " Disable X clipboard to not slow down by trying to connect to an X server.
     set clipboard=exclude:.*
 endif
@@ -67,6 +66,10 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 hi ColorColumn guibg=#eeeeee
+
+" Default ctermbg=1 red background for unrecognized words is very loud.
+" Try something less obtrusive.
+hi SpellBad cterm=underline ctermbg=none
 
 map <leader>rr :source ~/.vimrc<CR>
 
