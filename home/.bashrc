@@ -34,20 +34,18 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Customize prompt.  Currently based on Debian's .bashrc and only enabled there.
-if [ $(uname) == 'Linux' ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Customize prompt.  Based on Debian's .bashrc.
+#if [ $(uname) == 'Linux' ]; then
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
-    # If this is an xterm set the title to user@host:dir
-    case "$TERM" in
-    xterm*|rxvt*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-        ;;
-    *)
-        ;;
-    esac
-
-fi
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -76,16 +74,19 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
+if [[ $(uname) == Darwin ]]; then
+    alias gvim=mvim
+fi
 
 # Windows, Cygwin, Embarcadero RAD Studio
 if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
-export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
-alias cdapp='cd /cygdrive/c/trunk/app'
-alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0"'
-alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/include"'
-alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/source"'
+    export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
+    alias cdapp='cd /cygdrive/c/trunk/app'
+    alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0"'
+    alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/include"'
+    alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/RAD Studio/11.0/source"'
 
-alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
+    alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
 fi
 
 export EDITOR=vim
@@ -140,8 +141,8 @@ if [ -d /usr/local/opt/findutils ]; then
     alias find=gfind
 fi
 
-# From http://mmb.pcb.ub.es/~carlesfe/unix/tricks.txt:
-function lt() { ls -ltrsa "$@" | tail; }
+# Based on http://mmb.pcb.ub.es/~carlesfe/unix/tricks.txt:
+function lt() { ls -ltra "$@" | tail; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; }
 

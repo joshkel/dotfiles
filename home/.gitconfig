@@ -3,3 +3,6 @@
 	email = joshkel@gmail.com
 [push]
 	default = simple
+[alias]
+    ci = commit
+    st = status
