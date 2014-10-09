@@ -56,6 +56,8 @@ au FileType python set et | exec ColorColumn()
 
 au FileType cpp set ts=2 sw=2 | exec ColorColumn()
 
+au FileType diff set nospell
+
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
 
