@@ -30,7 +30,7 @@ endif
 
 function ColorColumn()
     if v:version >= 703 && has('gui_running')
-        set colorcolumn=80
+        setlocal colorcolumn=80
     endif
 endfunction
 
@@ -53,10 +53,6 @@ au BufRead *.md set filetype=markdown
 "au FileType html set spell
 
 au FileType python set et | exec ColorColumn()
-
-au FileType cpp set ts=2 sw=2 | exec ColorColumn()
-
-au FileType diff set nospell
 
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
