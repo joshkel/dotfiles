@@ -68,6 +68,7 @@ hi ColorColumn guibg=#eeeeee
 " Default ctermbg=1 red background for unrecognized words is very loud.
 " Try something less obtrusive.
 hi SpellBad cterm=underline ctermbg=none
+hi SpellRare cterm=none ctermbg=none
 
 map <leader>rr :source ~/.vimrc<CR>
 
@@ -89,4 +90,9 @@ set pastetoggle=<F2>
 " https://gist.github.com/ben336/4e4bc44d8135cfc43fc3
 " http://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim/
 " http://nvie.com/posts/how-i-boosted-my-vim/
+" http://robots.thoughtbot.com/faster-grepping-in-vim
+
+" To share with Windows gVim, create %HOMEPATH%/_vimrc with these contents:
+" set runtimepath+=c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vim
+" source c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vimrc
 
