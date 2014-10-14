@@ -1,5 +1,6 @@
 " Pascal / Delphi
-if (1==1) "change to "1==0" to use original syntax
+" I like the original syntax better.
+if (1==0) "change to "1==0" to use original syntax
   au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
 else
   au BufNewFile,BufRead *.pas,*.PAS set ft=pascal
