@@ -23,5 +23,17 @@ au BufNewFile,BufRead *.bpg,*.BPG set ft=make|setlocal makeprg=make\ -f\ %
 au BufNewFile,BufRead *.i set filetype=swig
 au BufNewFile,BufRead *.swg set filetype=swig
 
-au BufRead,BufNewFile *.proto setfiletype proto
+au BufNewFile,BufRead *.proto setfiletype proto
+
+au BufNewFile,BufRead *.jspx set filetype=jsp
+au BufNewFile,BufRead *.json set filetype=javascript
+
+" Embarcadero RAD Studio projects
+au BufNewFile,BufRead *.dproj set filetype=xml
+au BufNewFile,BufRead *.cbproj set filetype=xml
+
+" Visual FoxPro programs
+au BufNewFile,BufRead *.prg set filetype=foxpro
+
+au BufNewFile,BufRead *.md set filetype=markdown
 

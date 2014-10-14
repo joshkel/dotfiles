@@ -13,6 +13,8 @@ set history=100
 
 set spell
 
+set mousemodel=popup_setpos
+
 if has("win32")
     set gfn=Consolas:h11:cANSI
 
@@ -37,17 +39,6 @@ endfunction
 " Let % match, e.g., HTML tags
 source $VIMRUNTIME/macros/matchit.vim
 
-au BufRead *.jspx set filetype=jsp
-au BufRead *.json set filetype=javascript
-
-" Make syntax highlighting work for RAD Studio projects.
-au BufRead *.cbproj set filetype=xml
-
-" Make syntax highlighting work for Visual FoxPro programs.
-au BufRead *.prg set filetype=foxpro
-
-au BufRead *.md set filetype=markdown
-
 " Enable spell checking for human-readable documents.
 " Disabled for now in favor of blanket statement above.
 "au FileType html set spell
@@ -69,6 +60,7 @@ hi ColorColumn guibg=#eeeeee
 " Try something less obtrusive.
 hi SpellBad cterm=underline ctermbg=none
 hi SpellRare cterm=none ctermbg=none
+hi SpellCap cterm=none ctermbg=none
 
 map <leader>rr :source ~/.vimrc<CR>
 
