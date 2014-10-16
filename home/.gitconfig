@@ -4,5 +4,6 @@
 [push]
 	default = simple
 [alias]
-    ci = commit
-    st = status
+	ci = commit
+	st = status
+# vim: set noet

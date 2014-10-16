@@ -13,7 +13,7 @@ set history=100
 
 set spell
 
-set mousemodel=popup_setpos
+set mousemodel=popup_setpos browsedir=buffer
 
 if has("win32")
     set gfn=Consolas:h11:cANSI
