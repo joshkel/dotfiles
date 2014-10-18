@@ -138,6 +138,11 @@ alias pyenv='source ~/pyenv/bin/activate'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+if which -s brew ; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+fi
 
 # On OS X, use GNU stuff instead of OS X stuff, courtesy of Homebrew.
 if [ -d /usr/local/opt/findutils ]; then
