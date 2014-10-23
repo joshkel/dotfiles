@@ -55,27 +55,27 @@ endif
 
 " String
 if !exists("pascal_one_line_string")
-  syn region  pascalString matchgroup=pascalString start=+'+ end=+'+ contains=pascalStringEscape
+  syn region  pascalString matchgroup=pascalString start=+'+ end=+'+ contains=pascalStringEscape,@Spell
   if exists("pascal_gpc")
-    syn region  pascalString matchgroup=pascalString start=+"+ end=+"+ contains=pascalStringEscapeGPC
+    syn region  pascalString matchgroup=pascalString start=+"+ end=+"+ contains=pascalStringEscapeGPC,@Spell
   else
-    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ contains=pascalStringEscape
+    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ contains=pascalStringEscape,@Spell
   endif
 else
   "wrong strings
-  syn region  pascalStringError matchgroup=pascalStringError start=+'+ end=+'+ end=+$+ contains=pascalStringEscape
+  syn region  pascalStringError matchgroup=pascalStringError start=+'+ end=+'+ end=+$+ contains=pascalStringEscape,@Spell
   if exists("pascal_gpc")
-    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ end=+$+ contains=pascalStringEscapeGPC
+    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ end=+$+ contains=pascalStringEscapeGPC,@Spell
   else
-    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ end=+$+ contains=pascalStringEscape
+    syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ end=+$+ contains=pascalStringEscape,@Spell
   endif
 
   "right strings
-  syn region  pascalString matchgroup=pascalString start=+'+ end=+'+ oneline contains=pascalStringEscape
+  syn region  pascalString matchgroup=pascalString start=+'+ end=+'+ oneline contains=pascalStringEscape,@Spell
   " To see the start and end of strings:
-  " syn region  pascalString matchgroup=pascalStringError start=+'+ end=+'+ oneline contains=pascalStringEscape
+  " syn region  pascalString matchgroup=pascalStringError start=+'+ end=+'+ oneline contains=pascalStringEscape,@Spell
   if exists("pascal_gpc")
-    syn region  pascalString matchgroup=pascalString start=+"+ end=+"+ oneline contains=pascalStringEscapeGPC
+    syn region  pascalString matchgroup=pascalString start=+"+ end=+"+ oneline contains=pascalStringEscapeGPC,@Spell
   else
     syn region  pascalStringError matchgroup=pascalStringError start=+"+ end=+"+ oneline contains=pascalStringEscape
   endif
@@ -109,7 +109,7 @@ if exists("pascal_no_tabs")
   syn match pascalShowTab "\t"
 endif
 
-syn region pascalComment	start="(\*\|{"  end="\*)\|}" contains=pascalTodo,pascalSpaceError
+syn region pascalComment	start="(\*\|{"  end="\*)\|}" contains=pascalTodo,pascalSpaceError,@Spell
 
 
 if !exists("pascal_no_functions")
@@ -166,7 +166,7 @@ if !exists("pascal_traditional")
   endif
 
   if exists("pascal_fpc")
-    syn region pascalLineComment        start="//" end="$" contains=pascalTodo,pascalSpaceError
+    syn region pascalLineComment        start="//" end="$" contains=pascalTodo,pascalSpaceError,@Spell
     syn keyword pascalStatement	fail otherwise operator
     syn keyword pascalDirective	popstack
     syn keyword pascalPredefined self
@@ -180,7 +180,7 @@ if !exists("pascal_traditional")
   endif
 
   if exists("pascal_delphi")
-    syn region pascalLineComment start="//"  end="$" contains=pascalTodo,pascalSpaceError
+    syn region pascalLineComment start="//"  end="$" contains=pascalTodo,pascalSpaceError,@Spell
     syn keyword pascalType	SmallInt Int64
     syn keyword pascalType	Real48 Currency
     syn keyword pascalType	AnsiChar WideChar
