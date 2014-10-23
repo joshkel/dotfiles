@@ -1,6 +1,9 @@
 [user]
 	name = Josh Kelley
 	email = joshkel@gmail.com
+[core]
+	autocrlf = input
+	safecrlf = true
 [push]
 	default = simple
 [alias]
