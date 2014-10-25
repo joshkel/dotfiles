@@ -1,30 +1,60 @@
-# Add auto-completion and a stored history file of commands to your Python
-# interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
-# bound to the Esc key by default (you can change it - see readline docs).
 #
-# Store the file in ~/.pystartup, and set an environment variable to point
-# to it:  "export PYTHONSTARTUP=/home/user/.pystartup" in bash.
+# Python startup script
+# Based on https://github.com/mgedmin/dotfiles/blob/master/python
 #
-# Note that PYTHONSTARTUP does *not* expand "~", so you have to put in the
-# full path to your home directory.
+# To enable, add
+#    export PYTHONSTARTUP=~/.pythonrc
+# to your ~/.bashrc
+#
+# For more information see http://www.norvig.com/python-iaq.html
+# and also Tarek Ziade's _Expert_Pythom_Programming_ page 19
+#
+import os, sys
 
-import atexit
-import os
-import readline
-import rlcompleter
+# Coloured prompt
+if os.getenv('TERM') in ('xterm', 'xterm-256color', 'vt100', 'rxvt', 'Eterm', 'putty'):
+    try:
+        import readline
+    except ImportError:
+        pass
+    else:
+        sys.ps1 = '\001\033[0;32m\002>>> \001\033[0m\002'
+        sys.ps2 = '\001\033[0;32m\002... \001\033[0m\002'
 
-historyPath = os.path.expanduser("~/.pyhistory")
+# Tab-completion!
+try:
+    import readline
+except ImportError:
+    print("Module readline not available.")
+else:
+    # Persistent history!
+    histfile = os.path.expanduser('~/.pyhistory')
+    try:
+        readline.read_history_file(histfile)
+    except IOError:
+        pass
+    import atexit
+    def write_history(readline=readline, histfile=histfile):
+        try:
+            readline.write_history_file(histfile)
+        except IOError:
+            # root, nfs-mounted home with root_squash -> permission denied
+            pass
+    atexit.register(write_history)
+    del histfile, atexit, write_history
+    # Tab completion
+    try:
+        sys.path.append(os.path.join(os.getenv('HOME'), 'src', 'rlcompleter2'))
+        import rlcompleter2
+        rlcompleter2.setup()
+        del rlcompleter2
+    except ImportError:
+        import rlcompleter
+        readline.parse_and_bind("tab: complete")
+        del rlcompleter
+    del readline
 
-readline.parse_and_bind('tab: complete')
+del sys
+del os
 
-def save_history(historyPath=historyPath):
-	import readline
-	readline.write_history_file(historyPath)
-
-if os.path.exists(historyPath):
-	readline.read_history_file(historyPath)
-
-atexit.register(save_history)
-del os, atexit, readline, rlcompleter, save_history, historyPath
-
-# vim: syntax=python
+# vim: set ft=python :
