@@ -14,6 +14,7 @@ set history=100
 set spell
 
 set mousemodel=popup_setpos browsedir=buffer
+set ttimeoutlen=100        " http://stackoverflow.com/a/2158610/25507
 
 if has("win32")
     set gfn=Consolas:h11:cANSI

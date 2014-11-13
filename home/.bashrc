@@ -76,6 +76,8 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias please='sudo !!'
+
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
     alias gvim=mvim
@@ -96,6 +98,7 @@ export EDITOR=vim
 export SVN_EDITOR=vim
 export PATH=$PATH:~/bin
 export LUA_CPATH=";;/usr/local/lib/lua/5.1/?.so"
+export GCC_COLORS=1
 
 # ack is known as ack-grep on Debian / Ubuntu
 if ! which ack >& /dev/null; then
