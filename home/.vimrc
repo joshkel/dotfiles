@@ -84,6 +84,7 @@ set pastetoggle=<F2>
 " http://benmccormick.org/2014/07/14/learning-vim-in-2014-configuring-vim/
 " http://nvie.com/posts/how-i-boosted-my-vim/
 " http://robots.thoughtbot.com/faster-grepping-in-vim
+" http://statico.github.io/vim.html
 
 " To share with Windows gVim, create %HOMEPATH%/_vimrc with these contents:
 " set runtimepath+=c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vim
