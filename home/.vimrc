@@ -3,6 +3,20 @@ set ts=4 sw=4 is autoindent et modeline
 set backspace=indent,eol,start
 set enc=utf-8
 set cpoptions=$
+
+if !exists("homesick")
+    let homesick = $HOME . "/.homesick"
+endif
+
+filetype off
+let &runtimepath = &runtimepath . "," . homesick . "/repos/vundle"
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'mustache/vim-mustache-handlebars'
+
+call vundle#end()
+
 filetype plugin indent on
 
 set laststatus=2
