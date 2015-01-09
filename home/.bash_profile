@@ -15,7 +15,7 @@ fi
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-PATH=~/perl:~/python:"${PATH}":/sbin:/usr/sbin
+PATH=~/perl:~/python:~/.npm/bin:"${PATH}":/sbin:/usr/sbin
 
 # On OS X, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
 if [ -d /usr/local/opt/coreutils ]; then

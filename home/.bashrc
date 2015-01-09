@@ -18,6 +18,11 @@ export HISTFILESIZE=100000               # big big history
 
 export FIGNORE=.svn
 
+# Keep VT-100 line-drawing characters ("lqqqk") from showing up in PuTTY.
+# http://stackoverflow.com/q/8483798/25507, http://superuser.com/q/278286/4160
+# Disabled for now; more testing is desired.
+#export NCURSES_NO_UTF8_ACS=1
+
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
