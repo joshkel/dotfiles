@@ -81,12 +81,12 @@ map <leader>rr :source ~/.vimrc<CR>
 
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
 " respectively 
-map  ^[[D <Esc>:prev<CR>
-map  ^[[C <Esc>:next<CR>
-map! ^[[D <Esc>:prev<CR>
-map! ^[[C <Esc>:next<CR>
-nmap ^[[D :prev<CR>
-nmap ^[[C :next<CR>
+map  <Esc>[D <Esc>:prev<CR>
+map  <Esc>[C <Esc>:next<CR>
+map! <Esc>[D <Esc>:prev<CR>
+map! <Esc>[C <Esc>:next<CR>
+nmap <Esc>[D :prev<CR>
+nmap <Esc>[C :next<CR>
 
 " Toggles "paste mode' (no autoindent)
 " http://nvie.com/posts/how-i-boosted-my-vim/

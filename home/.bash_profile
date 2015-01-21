@@ -11,11 +11,15 @@ if [[ $- == *i* && -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 
+NPM_PACKAGES="$HOME/.npm-packages"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-PATH=~/perl:~/python:~/.npm/bin:"${PATH}":/sbin:/usr/sbin
+PATH=~/perl:~/python:"$NPM_PACKAGES/bin":"${PATH}":/sbin:/usr/sbin
+
+# May want to add "$NPM_PACKAGES/share/man" to MANPATH
 
 # On OS X, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
 if [ -d /usr/local/opt/coreutils ]; then
