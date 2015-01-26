@@ -14,6 +14,7 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'mustache/vim-mustache-handlebars'
+Bundle 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 
