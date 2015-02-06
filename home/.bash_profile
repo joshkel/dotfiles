@@ -27,6 +27,10 @@ if [ -d /usr/local/opt/coreutils ]; then
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
+if [ -d /Applications/Postgres.app ]; then
+    export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+fi
+
 # Sample of explicitly setting Java for Debian / Ubuntu.  Not needed.
 #export JAVA_HOME=/usr/lib/jvm/java-6-sun
 
