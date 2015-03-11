@@ -36,5 +36,7 @@ au BufNewFile,BufRead *.cbproj set filetype=xml
 " Visual FoxPro programs
 au BufNewFile,BufRead *.prg set filetype=foxpro
 
+" Other
 au BufNewFile,BufRead *.md set filetype=markdown
-
+au BufNewFile,BufRead upstart set filetype=upstart
+au BufNewFile,BufRead *.ll set filetype=llvm

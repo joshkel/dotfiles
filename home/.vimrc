@@ -93,6 +93,9 @@ nmap <Esc>[C :next<CR>
 " http://nvie.com/posts/how-i-boosted-my-vim/
 set pastetoggle=<F2>
 
+" Customize ntpeters/vim-better-whitespace: don't complain for diffs
+let g:better_whitespace_filetypes_blacklist=['diff']
+
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc
 " https://gist.github.com/ben336/4e4bc44d8135cfc43fc3
