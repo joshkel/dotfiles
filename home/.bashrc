@@ -183,6 +183,30 @@ fi
 
 ulimit -c unlimited
 
+SSH_ENV=$HOME/.ssh/environment
+
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+
+# Sample ssh-agent setup
+#if [ -f "${SSH_ENV}" ]; then
+#     . "${SSH_ENV}" > /dev/null
+#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#        start_agent;
+#    }
+#else
+#    start_agent;
+#fi
+
+
 # Homeshick configuration. See the Homeshick tutorial.
 # Skip this if we're running in a git-less chroot.
 if which git >& /dev/null; then
@@ -192,4 +216,3 @@ if which git >& /dev/null; then
         homeshick --quiet refresh
     fi
 fi
-

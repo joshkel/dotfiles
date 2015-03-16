@@ -2,7 +2,10 @@ syntax on
 set ts=4 sw=4 is autoindent et modeline
 set backspace=indent,eol,start
 set enc=utf-8
-set cpoptions=$
+" Buggy in MacVim
+if !has("gui_macvim")
+    set cpoptions=$
+endif
 
 if !exists("homesick")
     let homesick = $HOME . "/.homesick"
@@ -14,7 +17,8 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'mustache/vim-mustache-handlebars'
-Bundle 'ntpeters/vim-better-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
@@ -77,6 +81,10 @@ hi ColorColumn guibg=#eeeeee
 hi SpellBad cterm=underline ctermbg=none
 hi SpellRare cterm=none ctermbg=none
 hi SpellCap cterm=none ctermbg=none
+
+if has('gui_running')
+    colorscheme solarized
+end
 
 map <leader>rr :source ~/.vimrc<CR>
 
