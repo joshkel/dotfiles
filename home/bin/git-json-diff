@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+file=$1
+if [ -z "$file" ]; then
+    echo Usage: $0 file 1>&2
+    exit 2
+fi
+
+diff <(git show HEAD:$file | python -m json.tool) <(python -m json.tool $file)
