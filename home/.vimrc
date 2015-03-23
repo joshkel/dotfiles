@@ -84,12 +84,13 @@ hi SpellCap cterm=none ctermbg=none
 
 if has('gui_running')
     colorscheme solarized
+    set background=light
 end
 
 map <leader>rr :source ~/.vimrc<CR>
 
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
-" respectively 
+" respectively
 map  <Esc>[D <Esc>:prev<CR>
 map  <Esc>[C <Esc>:next<CR>
 map! <Esc>[D <Esc>:prev<CR>
