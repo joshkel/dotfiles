@@ -1,0 +1,4 @@
+#!/bin/bash
+# svn st alternative that's less noisy with externals
+
+svn st $* | grep -v '^$' | grep -v '^Performing status on external item' | grep -v '^X      ' | grep -v '^    X  '
