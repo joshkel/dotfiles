@@ -216,3 +216,6 @@ if which git >& /dev/null; then
         homeshick --quiet refresh
     fi
 fi
+
+# Optional machine-specific aliass
+test -f ~/.bashrc.local && . ~/.bashrc.local
