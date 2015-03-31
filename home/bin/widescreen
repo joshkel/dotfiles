@@ -1,0 +1,8 @@
+#!/bin/bash
+# Sets the first connected display to 1080p widescreen resolution
+# Based on http://askubuntu.com/q/189246
+
+display=$(xrandr --query | grep '\bconnected\b' | head -n 1 | awk '{print $1}')
+xrandr --newmode "1920x1080_60.00" 173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode $display "1920x1080_60.00"
+xrandr --output $display --mode "1920x1080_60.00"
