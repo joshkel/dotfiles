@@ -20,6 +20,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 
+" Usage - :JSHint
+Plugin 'Shutnik/jshint2.vim'
+
 call vundle#end()
 
 filetype plugin indent on
