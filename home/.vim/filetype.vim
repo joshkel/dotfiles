@@ -40,3 +40,4 @@ au BufNewFile,BufRead *.prg set filetype=foxpro
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
 au BufNewFile,BufRead *.ll set filetype=llvm
+au BufNewFile,BufRead *.rockspec set filetype=lua

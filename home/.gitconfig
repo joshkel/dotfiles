@@ -4,6 +4,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+    excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [alias]
