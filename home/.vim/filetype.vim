@@ -36,6 +36,10 @@ au BufNewFile,BufRead *.cbproj set filetype=xml
 " Visual FoxPro programs
 au BufNewFile,BufRead *.prg set filetype=foxpro
 
+" C++ standard headers - no suffix
+au BufNewFile,BufRead */dinkumware/* set filetype=cpp
+au BufNewFile,BufRead /usr/include/c++/* set filetype=cpp
+
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
