@@ -2,10 +2,14 @@
 
 set -e
 
-file=$1
-if [ -z "$file" ]; then
-    echo Usage: $0 file 1>&2
-    exit 2
+if [ $# -eq 0 ]; then
+    files=$(git st -s | grep '^.M.*\.json' | awk '{print $2}')
+else
+    files=$*
 fi
 
-diff <(git show HEAD:$file | python -m json.tool) <(python -m json.tool $file)
+
+for f in $files; do
+    echo diff $f.orig $f
+    diff <(git show HEAD:$f | python -m json.tool) <(python -m json.tool $f) || true
+done

@@ -115,6 +115,7 @@ let g:better_whitespace_filetypes_blacklist=['diff']
 " http://nvie.com/posts/how-i-boosted-my-vim/
 " http://robots.thoughtbot.com/faster-grepping-in-vim
 " http://statico.github.io/vim.html
+" http://tuxdiary.com/2015/02/15/yavide/
 
 " To share with Windows gVim, create %HOMEPATH%/_vimrc with these contents:
 " set runtimepath+=c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vim
