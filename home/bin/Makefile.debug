@@ -1,0 +1,10 @@
+# From http://blog.jgc.org/2015/04/the-one-line-you-should-add-to-every.html
+# Usage:
+# make -f ~/bin/Makefile.debug print-SOURCE_FILES
+print-%:
+	@echo '$*=$($*)'
+	@echo ' origin = $(origin $*)'
+	@echo ' flavor = $(flavor $*)'
+	@echo ' value = $(value $*)'
+
+include Makefile

@@ -109,9 +109,12 @@ if ! which ack >& /dev/null; then
     alias ack=ack-grep
 fi
 
+# make
 if which colormake >& /dev/null; then
     alias make=colormake
 fi
+# See http://blog.jgc.org/2015/04/the-one-line-you-should-add-to-every.html
+alias dbgmake="\\make -f~/bin/Makefile.debug"
 
 if [ -x /usr/local/eclipse/eclipse ]; then
     alias eclipse=/usr/local/eclipse/eclipse
@@ -162,7 +165,7 @@ function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; }
 
 # From http://fredkschott.com/post/2014/02/git-log-is-so-2005/
-# git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit" 
+# git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
 function lookuperror
 {
