@@ -153,6 +153,7 @@ if which brew >& /dev/null; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
+. ~/bin/django_bash_completion
 
 # On OS X, use GNU stuff instead of OS X stuff, courtesy of Homebrew.
 if [ -d /usr/local/opt/findutils ]; then
