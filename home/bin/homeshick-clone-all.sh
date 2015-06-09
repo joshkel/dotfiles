@@ -2,4 +2,7 @@
 
 homeshick clone joshkel/dotfiles
 homeshick clone gmarik/vundle
-homeshick clone frankcortes/svn-stash
+
+# gibrown fork is newer
+#homeshick clone frankcortes/svn-stash
+homeshick clone gibrown/svn-stash
