@@ -144,6 +144,10 @@ fi
 export PYTHONSTARTUP=~/.pythonrc
 alias pyenv='source ~/pyenv/bin/activate'
 
+# Subversion
+# From frankcortes/svn-stash:
+alias svn-stash='python ~/.homesick/repos/svn-stash/svn-stash.py'
+
 # Enable programmable completion.  May already be done in /etc/bash.bashrc.
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
@@ -220,5 +224,5 @@ if which git >& /dev/null; then
     fi
 fi
 
-# Optional machine-specific aliass
+# Optional machine-specific aliases
 test -f ~/.bashrc.local && . ~/.bashrc.local
