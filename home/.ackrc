@@ -2,3 +2,7 @@
 pascal=.pas
 --type-set
 delphi=.dfm,.pas
+--type-set
+gettext=.po
+--ignore-dir
+.tox

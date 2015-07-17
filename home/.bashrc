@@ -133,6 +133,7 @@ alias rbgrep='ack --ruby'
 
 alias histgrep='history | grep'
 
+
 # Ruby Gems
 if [ -d $HOME/gems ]; then
     export GEM_HOME=$HOME/gems
@@ -140,9 +141,19 @@ if [ -d $HOME/gems ]; then
     export PATH=$HOME/gems/bin:$PATH
 fi
 
+
 # Python
 export PYTHONSTARTUP=~/.pythonrc
-alias pyenv='source ~/pyenv/bin/activate'
+
+# Manually managed virtualenv:
+#alias pyenv='source ~/pyenv/bin/activate'
+
+# Using pyenv:
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+#To use Homebrew's directories rather than ~/.pyenv add to your profile:
+#export PYENV_ROOT=/usr/local/var/pyenv
+
 
 # Subversion
 # From frankcortes/svn-stash:
