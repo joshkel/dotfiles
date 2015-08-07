@@ -1,0 +1,4 @@
+#!/bin/bash
+# Source: http://unix.stackexchange.com/a/87909/615
+
+sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'

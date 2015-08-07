@@ -10,3 +10,4 @@ set history expansion
 set disassembly-flavor intel
 
 add-auto-load-safe-path ~/trunk/app/scripts/gdbinit
+add-auto-load-safe-path /usr/lib/libstdc++.so.6.0.21-gdb.py
