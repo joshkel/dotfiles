@@ -151,6 +151,9 @@ export PYTHONSTARTUP=~/.pythonrc
 # Using pyenv:
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+#To activate *everything*:
+#pyenv shell system 2.7.10 3.3.6 3.2.6 3.1.5 2.6.9 2.5.6
+
 #To use Homebrew's directories rather than ~/.pyenv add to your profile:
 #export PYENV_ROOT=/usr/local/var/pyenv
 
