@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/.homesick/repos/homeshick/homeshick.sh
+
 homeshick clone joshkel/dotfiles
 homeshick clone gmarik/vundle
 
