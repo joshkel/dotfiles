@@ -110,9 +110,10 @@ if ! which ack >& /dev/null; then
 fi
 
 # make
-if which colormake >& /dev/null; then
-    alias make=colormake
-fi
+# Disable for now, since g++ added its own color support.
+#if which colormake >& /dev/null; then
+#    alias make=colormake
+#fi
 # See http://blog.jgc.org/2015/04/the-one-line-you-should-add-to-every.html
 alias dbgmake="\\make -f~/bin/Makefile.debug"
 
@@ -152,7 +153,7 @@ export PYTHONSTARTUP=~/.pythonrc
 if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 
 #To activate *everything*:
-#pyenv shell system 2.7.10 3.3.6 3.2.6 3.1.5 2.6.9 2.5.6
+#pyenv shell system 2.7.10 3.3.6 3.2.6 3.1.5 2.6.9 2.5.6 pypy-c-jit-latest
 
 #To use Homebrew's directories rather than ~/.pyenv add to your profile:
 #export PYENV_ROOT=/usr/local/var/pyenv

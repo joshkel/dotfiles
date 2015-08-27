@@ -64,3 +64,9 @@ SubWCRev
 https
 Plugin
 stdout
+Modbus
+pymodbus
+etc
+json
+ip
+config
