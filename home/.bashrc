@@ -162,6 +162,7 @@ if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 # Subversion
 # From frankcortes/svn-stash:
 alias svn-stash='python ~/.homesick/repos/svn-stash/svn-stash.py'
+alias svn-icdiff='svn diff --diff-cmd=icdiff'
 
 # Enable programmable completion.  May already be done in /etc/bash.bashrc.
 if [ -f /etc/bash_completion ]; then
