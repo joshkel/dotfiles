@@ -38,6 +38,7 @@ au BufNewFile,BufRead *.prg set filetype=foxpro
 
 " C++ standard headers - no suffix
 au BufNewFile,BufRead */dinkumware/* set filetype=cpp
+au BufNewFile,BufRead */dinkumware64/* set filetype=cpp
 au BufNewFile,BufRead /usr/include/c++/* set filetype=cpp
 
 " Other
