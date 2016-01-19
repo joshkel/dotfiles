@@ -1,5 +1,5 @@
 syntax on
-set ts=4 sw=4 is autoindent et modeline
+set ts=4 sw=4 is autoindent et modeline title
 set backspace=indent,eol,start
 set enc=utf-8
 " Buggy in MacVim
