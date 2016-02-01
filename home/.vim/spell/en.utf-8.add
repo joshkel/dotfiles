@@ -79,3 +79,10 @@ dpkg
 Doxygen
 Windrock
 svn
+ANTLR
+lexer
+cpp
+wildcard
+protobuf
+enum
+crosshead
