@@ -86,3 +86,6 @@ wildcard
 protobuf
 enum
 crosshead
+perl
+virtualenv
+IIS
