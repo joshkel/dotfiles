@@ -1,5 +1,6 @@
 #!/bin/bash
-# Sets the first connected display to 1080p widescreen resolution
+# Sets the first connected display to 1920x1080 widescreen resolution
+# Modeline was detected in VMware Workstation and may not work elsewhere
 # Based on http://askubuntu.com/q/189246
 
 display=$(xrandr --query | grep '\bconnected\b' | head -n 1 | awk '{print $1}')
