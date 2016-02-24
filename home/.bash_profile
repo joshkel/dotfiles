@@ -11,13 +11,14 @@ if [[ $- == *i* && -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 
-NPM_PACKAGES="$HOME/.npm-packages"
+export NPM_PACKAGES="$HOME/.npm-packages"
+export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-PATH=~/perl:~/python:"$NPM_PACKAGES/bin":"${PATH}":/sbin:/usr/sbin
+export PATH=~/perl:~/python:"$NPM_PACKAGES/bin":"${PATH}":/sbin:/usr/sbin
 
 # May want to add "$NPM_PACKAGES/share/man" to MANPATH
 
