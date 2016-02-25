@@ -32,6 +32,7 @@ au BufNewFile,BufRead *.json set filetype=javascript
 " Embarcadero RAD Studio projects
 au BufNewFile,BufRead *.dproj set filetype=xml
 au BufNewFile,BufRead *.cbproj set filetype=xml
+au BufNewFile,BufRead *.groupproj set filetype=xml
 
 " Visual FoxPro programs
 au BufNewFile,BufRead *.prg set filetype=foxpro
@@ -40,6 +41,11 @@ au BufNewFile,BufRead *.prg set filetype=foxpro
 au BufNewFile,BufRead */dinkumware/* set filetype=cpp
 au BufNewFile,BufRead */dinkumware64/* set filetype=cpp
 au BufNewFile,BufRead /usr/include/c++/* set filetype=cpp
+
+" Web development-related config files
+au BufNewFile,BufRead .babelrc set filetype=json
+au BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .jscsrc set filetype=json
 
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown

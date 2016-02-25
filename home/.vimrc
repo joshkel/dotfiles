@@ -19,6 +19,7 @@ Plugin 'gmarik/vundle'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'elzr/vim-json'
 
 " Usage - :JSHint
 Plugin 'Shutnik/jshint2.vim'
@@ -107,6 +108,9 @@ set pastetoggle=<F2>
 
 " Customize ntpeters/vim-better-whitespace: don't complain for diffs
 let g:better_whitespace_filetypes_blacklist=['diff']
+
+" Customize elzr/vim-json: don't hide double quotes
+"let g:vim_json_syntax_conceal = 0
 
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc
