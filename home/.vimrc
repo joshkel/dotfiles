@@ -21,6 +21,10 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'elzr/vim-json'
 
+" Support for ES2015, among other things
+" See https://davidosomething.com/blog/vim-for-javascript/
+Plugin 'othree/yajs'
+
 " Usage - :JSHint
 Plugin 'Shutnik/jshint2.vim'
 
