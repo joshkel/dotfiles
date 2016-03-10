@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+    files=$(git st -s | grep '^.M.*\.json' | awk '{print $2}')
+else
+    files=$*
+fi
+
+
+for f in $files; do
+    echo icdiff $f.orig $f
+    icdiff <(git show HEAD:$f | python -m json.tool) <(python -m json.tool $f) || true
+done
