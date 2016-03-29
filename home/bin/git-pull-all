@@ -1,4 +1,6 @@
 #!/bin/bash
+# Does a "git pull" on any Git repos in any subdirectories of the current
+# working directory.
 
 set -e
 
