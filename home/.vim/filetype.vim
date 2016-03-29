@@ -47,6 +47,9 @@ au BufNewFile,BufRead .babelrc set filetype=json
 au BufNewFile,BufRead .eslintrc set filetype=json
 au BufNewFile,BufRead .jscsrc set filetype=json
 
+" More web development
+au BufNewFile,BufRead .node_repl_history set filetype=javascript
+
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
