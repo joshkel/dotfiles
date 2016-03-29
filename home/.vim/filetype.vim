@@ -1,9 +1,9 @@
 " Pascal / Delphi
 " I like the original syntax better.
 if (1==0) "change to "1==0" to use original syntax
-  au BufNewFile,BufRead *.pas,*.PAS set ft=delphi
+  au BufNewFile,BufRead *.pas,*.PAS,*.inc set ft=delphi
 else
-  au BufNewFile,BufRead *.pas,*.PAS set ft=pascal
+  au BufNewFile,BufRead *.pas,*.PAS,*.inc set ft=pascal
 endif
 " Delphi project file
 au BufNewFile,BufRead *.dpr,*.DPR set ft=delphi
