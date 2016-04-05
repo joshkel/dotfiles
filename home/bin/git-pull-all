@@ -4,7 +4,11 @@
 
 set -e
 
+bold=$(tput bold)
+normal=$(tput sgr0)
+
 for f in $(find -name .git); do
-    echo $(dirname $f)
+    echo $bold$(dirname $f)$normal
     (cd $(dirname $f) && git pull)
+    echo
 done
