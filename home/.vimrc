@@ -28,6 +28,9 @@ Plugin 'othree/yajs'
 " Usage - :JSHint
 Plugin 'Shutnik/jshint2.vim'
 
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -51,6 +54,10 @@ if has("win32")
     " My change:  (because Windows 7 rearranges folder windows whenever a .swp
     " is added):
     set dir=c:\\tmp,c:\\temp
+
+    " CTRL-V is Paste
+    " (from mswin.vim)
+    map <C-V> "+gP
 endif
 
 if !has('gui_running')
@@ -58,7 +65,7 @@ if !has('gui_running')
     set clipboard=exclude:.*
 endif
 
-function ColorColumn()
+function! ColorColumn()
     if v:version >= 703 && has('gui_running')
         setlocal colorcolumn=80
     endif
@@ -95,6 +102,7 @@ if has('gui_running')
     set background=light
 end
 
+map <leader>ro :e ~/.vimrc<CR>
 map <leader>rr :source ~/.vimrc<CR>
 
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
