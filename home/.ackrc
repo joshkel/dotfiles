@@ -4,5 +4,9 @@ pascal=.pas
 delphi=.dfm,.pas
 --type-set
 gettext=.po
+--type-set
+less=.less
+--type-set
+sass=.sass,.scss
 --ignore-dir
 .tox
