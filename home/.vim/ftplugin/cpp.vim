@@ -1,6 +1,6 @@
 setlocal ts=2 sw=2
 
-exec ColorColumn()
+exec ColorColumn("80,100")
 
 " See http://stackoverflow.com/q/22649637/25507
 let b:browsefilter = "C++ Source Files (*.cpp, *.cc, *.h, *.hpp)\t*.cpp;*.cc;*.h;*.hpp\n" .

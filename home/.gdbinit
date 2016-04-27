@@ -11,6 +11,7 @@ set disassembly-flavor intel
 
 add-auto-load-safe-path ~/trunk/app/scripts/gdbinit
 add-auto-load-safe-path /usr/lib/libstdc++.so.6.0.21-gdb.py
+add-auto-load-safe-path /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21-gdb.py
 
 # libstd++ pretty printers, as provided by Ubuntu.
 # See https://sourceware.org/gdb/wiki/STLSupport.

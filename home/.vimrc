@@ -1,4 +1,5 @@
 syntax on
+set t_Co=256
 set ts=4 sw=4 is autoindent et modeline title
 set backspace=indent,eol,start
 set enc=utf-8
@@ -46,6 +47,9 @@ set spell
 set mousemodel=popup_setpos browsedir=buffer
 set ttimeoutlen=100        " http://stackoverflow.com/a/2158610/25507
 
+" Join comments and indentation when joining lines.
+set formatoptions+=j
+
 if has("win32")
     set gfn=Consolas:h11:cANSI
 
@@ -65,9 +69,9 @@ if !has('gui_running')
     set clipboard=exclude:.*
 endif
 
-function! ColorColumn()
-    if v:version >= 703 && has('gui_running')
-        setlocal colorcolumn=80
+function! ColorColumn(c)
+    if v:version >= 703
+        let &l:colorcolumn=a:c
     endif
 endfunction
 
@@ -78,7 +82,7 @@ source $VIMRUNTIME/macros/matchit.vim
 " Disabled for now in favor of blanket statement above.
 "au FileType html set spell
 
-au FileType python set et | exec ColorColumn()
+au FileType python set et | exec ColorColumn(80)
 
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
@@ -89,7 +93,7 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 " vim.wikia.com has a fancier, longer version.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-hi ColorColumn guibg=#eeeeee
+hi ColorColumn guibg=#eeeeee ctermbg=255
 
 " Default ctermbg=1 red background for unrecognized words is very loud.
 " Try something less obtrusive.
@@ -123,6 +127,11 @@ let g:better_whitespace_filetypes_blacklist=['diff']
 
 " Customize elzr/vim-json: don't hide double quotes
 "let g:vim_json_syntax_conceal = 0
+
+" Use F4 to switch between source and header files.
+" From http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
+" See that file for much more sophisticated versions.
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc

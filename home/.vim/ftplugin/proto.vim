@@ -1,1 +1,1 @@
-exec ColorColumn()
+exec ColorColumn(80)

@@ -10,4 +10,5 @@
 [alias]
 	ci = commit
 	st = status
+# Further ideas: http://gggritso.com/human-git-aliases
 # vim: set noet
