@@ -31,6 +31,7 @@ Plugin 'Shutnik/jshint2.vim'
 
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -106,8 +107,10 @@ if has('gui_running')
     set background=light
 end
 
-map <leader>ro :e ~/.vimrc<CR>
-map <leader>rr :source ~/.vimrc<CR>
+" Map \ro to edit vimrc and \rr to source vimrc
+" Hard-code Homeshick's paths so that we work on Windows as well as POSIX
+map <leader>ro :e ~/.homesick/repos/dotfiles/home/.vimrc<CR>
+map <leader>rr :source ~/.homesick/repos/dotfiles/home/.vimrc<CR>
 
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
 " respectively
