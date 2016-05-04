@@ -8,5 +8,7 @@ gettext=.po
 less=.less
 --type-set
 sass=.sass,.scss
+--type-set
+jsx=.jsx
 --ignore-dir
 .tox
