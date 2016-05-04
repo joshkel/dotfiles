@@ -89,6 +89,8 @@ if [[ $(uname) == Darwin ]]; then
     alias gvim=mvim
 fi
 
+. ~/.homesick/repos/dotfiles/home/bin/upto.sh
+
 # Windows, Cygwin, Embarcadero RAD Studio
 if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
     export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
