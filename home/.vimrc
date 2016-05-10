@@ -49,7 +49,9 @@ set mousemodel=popup_setpos browsedir=buffer
 set ttimeoutlen=100        " http://stackoverflow.com/a/2158610/25507
 
 " Join comments and indentation when joining lines.
-set formatoptions+=j
+if v:version >= 704
+    set formatoptions+=j
+end
 
 if has("win32")
     set gfn=Consolas:h11:cANSI
