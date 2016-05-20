@@ -146,6 +146,7 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " http://robots.thoughtbot.com/faster-grepping-in-vim
 " http://statico.github.io/vim.html
 " http://tuxdiary.com/2015/02/15/yavide/
+" http://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
 
 " To share with Windows gVim, create %HOMEPATH%/_vimrc with these contents:
 " set runtimepath+=c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vim
