@@ -85,8 +85,6 @@ source $VIMRUNTIME/macros/matchit.vim
 " Disabled for now in favor of blanket statement above.
 "au FileType html set spell
 
-au FileType python set et | exec ColorColumn(80)
-
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
 
