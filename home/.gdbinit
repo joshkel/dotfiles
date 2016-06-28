@@ -22,8 +22,11 @@ for d in ['/usr/share/gcc-6/python', '/usr/share/gcc-5/python']:
     if os.path.isdir(d):
         sys.path.insert(0, d)
         break
-from libstdcxx.v6.printers import register_libstdcxx_printers
-register_libstdcxx_printers (None)
+try:
+    from libstdcxx.v6.printers import register_libstdcxx_printers
+    register_libstdcxx_printers (None)
+except ImportError:
+    print("libstdc++ pretty printers are unavailable")
 end
 
 # From https://github.com/mateidavid/Boost-Pretty-Printer (a newer fork of
@@ -31,9 +34,11 @@ end
 python
 import os
 import sys
-boost_dir = os.path.expanduser('~/src/Boost-Pretty-Printer')
-if os.path.exists(boost_dir):
-    sys.path.insert(0, boost_dir)
-    import boost.latest
-    boost.register_printers()
+# Not sure of the exact version requirement; I know 2.5 doesn't work.
+if sys.version_info > (2, 7):
+    boost_dir = os.path.expanduser('~/src/Boost-Pretty-Printer')
+    if os.path.exists(boost_dir):
+        sys.path.insert(0, boost_dir)
+        import boost.latest
+        boost.register_printers()
 end
