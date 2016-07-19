@@ -149,7 +149,8 @@ enable-auto-props = yes
 *.cpp = svn:eol-style=native
 *.h = svn:eol-style=native
 *.hpp = svn:eol-style=native
+*.py = svn:eol-style=native
+*.html = svn:eol-style=native
 *.js = svn:eol-style=native
 *.css = svn:eol-style=native
-*.html = svn:eol-style=native
-
+*.scss = svn:eol-style=native

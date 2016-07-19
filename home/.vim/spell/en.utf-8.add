@@ -117,3 +117,6 @@ inlined
 tarball
 chroot
 app
+VMs
+stderr
+crontab
