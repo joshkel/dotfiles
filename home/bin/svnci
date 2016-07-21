@@ -1,0 +1,21 @@
+#!/bin/bash
+# Launches two gVim windows, one showing a diff and one allowing entry of a
+# commit message.  If/when you save and exit the commit message gVim, it
+# commits changes.
+
+set -e
+
+wcroot=$(svn info $* | grep "Working Copy Root Path:" | head -n 1 | cut -f 2 -d ':')
+commitmsg=$wcroot/svn-commit.tmp
+
+svn diff $* | gview -
+gvim -f $commitmsg
+
+if [ ! -s $commitmsg ]; then
+    echo $commitmsg is empty, aborting
+    rm $commitmsg
+    exit 1
+fi
+
+svn ci $* -F $commitmsg
+rm $commitmsg
