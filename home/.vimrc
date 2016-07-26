@@ -31,6 +31,7 @@ Plugin 'Shutnik/jshint2.vim'
 
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 call vundle#end()
@@ -130,6 +131,9 @@ let g:better_whitespace_filetypes_blacklist=['diff']
 
 " Customize elzr/vim-json: don't hide double quotes
 "let g:vim_json_syntax_conceal = 0
+
+" Customize mxw/vim-jsx: use JSX even for .js files
+let g:jsx_ext_required = 0
 
 " Use F4 to switch between source and header files.
 " From http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
