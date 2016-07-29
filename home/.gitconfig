@@ -10,5 +10,6 @@
 [alias]
 	ci = commit
 	st = status
+    unstage = reset HEAD
 # Further ideas: http://gggritso.com/human-git-aliases
 # vim: set noet
