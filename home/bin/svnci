@@ -8,12 +8,19 @@ set -e
 wcroot=$(svn info $* | grep "Working Copy Root Path:" | head -n 1 | cut -f 2 -d ':')
 commitmsg=$wcroot/svn-commit.tmp
 
-svn diff $* | gview -
-gvim -f $commitmsg
+gview -f <(svn diff $*) > /dev/null &
+diff_pid=$!
+trap "kill $diff_pid 2>/dev/null" EXIT
+
+gvim -f $commitmsg > /dev/null &
+commit_pid=$!
+trap "kill $commit_pid 2>/dev/null" INT
+
+wait $commit_pid
 
 if [ ! -s $commitmsg ]; then
     echo $commitmsg is empty, aborting
-    rm $commitmsg
+    rm -f $commitmsg
     exit 1
 fi
 
