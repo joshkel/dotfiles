@@ -16,7 +16,7 @@ filetype off
 let &runtimepath = &runtimepath . "," . homesick . "/repos/vundle"
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'

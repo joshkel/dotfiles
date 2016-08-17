@@ -91,6 +91,12 @@ fi
 
 . ~/.homesick/repos/dotfiles/home/bin/upto.sh
 
+# man
+# See also https://www.reddit.com/r/programming/comments/4xyvoe/colorized_man_pages/
+if which most > /dev/null; then
+    export MANPAGER=most
+fi
+
 # Windows, Cygwin, Embarcadero RAD Studio
 if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
     export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
