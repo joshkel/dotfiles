@@ -14,9 +14,15 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE=" *"
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
+# Write and read history on every command
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# Record each command as it gets issued
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 export FIGNORE=.svn
+
+# Automatically trim long paths in the prompt
+export PROMPT_DIRTRIM=2
 
 # Keep VT-100 line-drawing characters ("lqqqk") from showing up in PuTTY.
 # http://stackoverflow.com/q/8483798/25507, http://superuser.com/q/278286/4160
@@ -29,6 +35,10 @@ shopt -s checkwinsize
 # When changing directory small typos can be ignored by bash
 # for example, cd /vr/lgo/apaache would find /var/log/apache
 shopt -s cdspell
+
+# From mrzool/bash-sensible:
+# Turn on recursive globbing (enables ** to recurse all directories)
+shopt -s globstar 2> /dev/null
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
