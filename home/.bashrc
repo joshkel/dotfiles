@@ -39,6 +39,8 @@ shopt -s cdspell
 # From mrzool/bash-sensible:
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
+# Case insensitive filename tab completion (particularly useful on Windows)
+bind "set completion-ignore-case on"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
