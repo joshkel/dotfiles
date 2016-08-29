@@ -40,7 +40,9 @@ shopt -s cdspell
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
 # Case insensitive filename tab completion (particularly useful on Windows)
-bind "set completion-ignore-case on"
+if [ -t 1 ]; then
+    bind "set completion-ignore-case on"
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
