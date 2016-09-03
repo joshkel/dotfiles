@@ -111,10 +111,19 @@ if which most > /dev/null; then
     export MANPAGER=most
 fi
 
+# Common directories
+shopt -s cdable_vars
+if [ -d /cygdrive/c/trunk/app ]; then
+    app=/cygdrive/c/trunk/app
+elif [ -d /c/trunk/app ]; then
+    app=/c/trunk/app
+elif [ -d ~/trunk/app ]; then
+    app=~/trunk/app
+fi
+
 # Windows, Cygwin, Embarcadero RAD Studio
 if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
     export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
-    alias cdapp='cd /cygdrive/c/trunk/app'
     alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0"'
     alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0/include"'
     alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0/source"'
