@@ -18,7 +18,7 @@ export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-export PATH=~/perl:~/python:"$NPM_PACKAGES/bin":"${PATH}":/sbin:/usr/sbin
+export PATH="$NPM_PACKAGES/bin":~/.cabal/bin:"${PATH}":/sbin:/usr/sbin
 
 # May want to add "$NPM_PACKAGES/share/man" to MANPATH
 
