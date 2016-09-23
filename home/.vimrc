@@ -34,6 +34,9 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" Better alternative to using .viminfo to remember last line
+Plugin 'dietsche/vim-lastplace'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -88,12 +91,6 @@ source $VIMRUNTIME/macros/matchit.vim
 
 autocmd BufEnter *.html :syntax sync fromstart
 autocmd BufEnter *.htm :syntax sync fromstart
-
-" Enable viminfo to remember certain things when we exit.
-set viminfo='10,\"100,:20,%,n~/.viminfo
-" Use viminfo to restore last line when reopening a file
-" vim.wikia.com has a fancier, longer version.
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 hi ColorColumn guibg=#eeeeee ctermbg=255
 
