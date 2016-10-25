@@ -137,8 +137,11 @@ export PATH=$PATH:~/bin
 export LUA_CPATH=";;/usr/local/lib/lua/5.1/?.so"
 export GCC_COLORS=1
 
-# ack is known as ack-grep on Debian / Ubuntu
-if ! which ack >& /dev/null; then
+# ack is known as ack-grep on Debian / Ubuntu.
+# But ag is even better.
+if which ag >& /dev/null; then
+    alias ack=ag
+elif ! which ack >& /dev/null; then
     alias ack=ack-grep
 fi
 

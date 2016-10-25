@@ -12,3 +12,5 @@ sass=.sass,.scss
 jsx=.jsx
 --ignore-dir
 .tox
+--ignore-dir
+node_modules
