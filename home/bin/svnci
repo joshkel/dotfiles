@@ -26,3 +26,6 @@ fi
 
 svn ci $* -F $commitmsg
 rm $commitmsg
+
+# Delete any temporary Vim files left by aborted commits.
+rm -rf .$commitmsg.swp
