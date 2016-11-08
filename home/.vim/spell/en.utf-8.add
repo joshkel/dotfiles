@@ -136,3 +136,5 @@ viewport
 viewports
 deduplicate
 shrinkwrap
+middleware
+redux
