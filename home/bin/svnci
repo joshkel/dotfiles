@@ -5,7 +5,11 @@
 
 set -e
 
-wcroot=$(svn info $* | grep "Working Copy Root Path:" | head -n 1 | cut -f 2 -d ':')
+wcroot=$(svn info $* | perl -ne '/Working Copy Root Path: *(.*)/ and print $1' | head -n 1)
+if [ -z "$wcroot" ]; then
+    echo "Failed to determine working copy root" 1>&2
+    exit 1
+fi
 commitmsg=$wcroot/svn-commit.tmp
 
 gview -f <(svn diff $*) > /dev/null &
@@ -28,4 +32,4 @@ svn ci $* -F $commitmsg
 rm $commitmsg
 
 # Delete any temporary Vim files left by aborted commits.
-rm -rf .$commitmsg.swp
+rm -f .${commitmsg}.swp
