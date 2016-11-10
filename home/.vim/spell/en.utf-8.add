@@ -138,3 +138,5 @@ deduplicate
 shrinkwrap
 middleware
 redux
+blog
+metadata
