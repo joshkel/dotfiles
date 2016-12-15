@@ -221,6 +221,9 @@ if [ -d /usr/local/opt/findutils ]; then
     alias find=gfind
 fi
 
+# See http://superuser.com/a/975878/4160
+alias brewski='brew update && brew upgrade --all && brew cleanup; brew doctor'
+
 # Based on http://mmb.pcb.ub.es/~carlesfe/unix/tricks.txt:
 function lt() { ls -ltra "$@" | tail; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
