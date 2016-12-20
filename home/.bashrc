@@ -158,6 +158,13 @@ if [ -x /usr/local/eclipse/eclipse ]; then
 fi
 
 alias schroot='schroot -p'
+if [ -f /usr/bin/schroot ]; then
+    for f in /srv/chroot/*; do
+        CHROOT=`basename $f`
+        alias $CHROOT="schroot -c ${CHROOT}"
+    done
+    unset CHROOT
+fi
 
 # ack aliases
 alias cgrep='ack --cc --cpp'
