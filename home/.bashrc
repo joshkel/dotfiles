@@ -52,11 +52,15 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# git-aware-prompt - https://github.com/jimeh/git-aware-prompt
+export GITAWAREPROMPT=~/.homesick/repos/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+
 # Customize prompt.  Based on Debian's .bashrc.
-# Also depends on git-aware-prompt below
+# Also depends on git-aware-prompt
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\$txtcyn\]\$git_branch\[\$txtred\]\$git_dirty\[\$txtrst\]\$ "
+PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -199,11 +203,6 @@ if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 # From frankcortes/svn-stash:
 alias svn-stash='python ~/.homesick/repos/svn-stash/svn-stash.py'
 alias svn-icdiff='svn diff --diff-cmd=icdiff'
-
-# Git
-# https://github.com/jimeh/git-aware-prompt
-export GITAWAREPROMPT=~/.homesick/repos/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
 
 # Enable programmable completion.  May already be done in /etc/bash.bashrc.
 if [ -f /etc/bash_completion ]; then
