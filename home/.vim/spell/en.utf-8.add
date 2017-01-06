@@ -141,3 +141,5 @@ redux
 blog
 metadata
 unhandled
+Valgrind
+plugin's

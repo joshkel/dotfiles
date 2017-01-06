@@ -50,6 +50,10 @@ au BufNewFile,BufRead .jscsrc set filetype=json
 " More web development
 au BufNewFile,BufRead .node_repl_history set filetype=javascript
 
+" Valgrind filenames that I like to use
+au BufRead valgrind.out set filetype=valgrind
+au BufRead helgrind.out set filetype=valgrind
+
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
