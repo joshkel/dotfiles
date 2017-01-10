@@ -151,6 +151,9 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " https://github.com/tpope/vim-sensible
 " http://vim-bootstrap.com/
 " https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+"
+" For Ctags in particular:
+" https://advancedweb.hu/2017/01/10/vim-scala-ag-ctags/
 
 " To share with Windows gVim, create %HOMEPATH%/_vimrc with these contents:
 " set runtimepath+=c:/cygwin/home/Josh/.homesick/repos/dotfiles/home/.vim
