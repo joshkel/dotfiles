@@ -11,5 +11,7 @@
 	ci = commit
 	st = status
     unstage = reset HEAD
+[submodule]
+	fetchJobs = 4
 # Further ideas: http://gggritso.com/human-git-aliases
 # vim: set noet
