@@ -206,6 +206,17 @@ if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 #export PYENV_ROOT=/usr/local/var/pyenv
 
 
+# Ruby
+# rbenv was installed using
+#   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+#   cd ~/.rbenv && src/configure && make -C src
+#   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+if [ -d ~/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
+
+
 # Subversion
 # From frankcortes/svn-stash:
 alias svn-stash='python ~/.homesick/repos/svn-stash/svn-stash.py'
