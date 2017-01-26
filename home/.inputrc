@@ -68,3 +68,6 @@ $endif
 # "\e[F": end-of-line
 
 $endif
+
+# See http://cirw.in/blog/bracketed-paste
+set enable-bracketed-paste on
