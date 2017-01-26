@@ -22,6 +22,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'elzr/vim-json'
 
+" TODO: Doesn't work in Ubuntu 14.04's tmux 1.8
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
 " Support for ES2015, among other things
 " See https://davidosomething.com/blog/vim-for-javascript/
 Plugin 'othree/yajs'
