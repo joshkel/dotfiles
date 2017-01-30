@@ -7,18 +7,6 @@
 # Don't wait for job termination notification
 set -o notify
 
-# For more bash history options, see http://unix.stackexchange.com/q/1288,
-# http://stackoverflow.com/questions/103944
-shopt -s histappend
-export HISTCONTROL=ignoredups
-export HISTIGNORE=" *"
-export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-# Write and read history on every command
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-# Record each command as it gets issued
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
 export FIGNORE=.svn
 
 # Automatically trim long paths in the prompt
@@ -73,6 +61,18 @@ source "${GITAWAREPROMPT}/main.sh"
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# For more bash history options, see http://unix.stackexchange.com/q/1288,
+# http://stackoverflow.com/questions/103944
+shopt -s histappend
+export HISTCONTROL=ignoredups
+export HISTIGNORE=" *"
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+# Write and read history on every command
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# Record each command as it gets issued
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -300,6 +300,20 @@ if which git >& /dev/null; then
         homeshick --quiet refresh
     fi
 fi
+
+# -- Improved X11 forwarding through GNU Screen (or tmux).
+# If not in screen or tmux, update the DISPLAY cache.
+# If we are, update the value of DISPLAY to be that in the cache.
+# Source: http://alexteichman.com/octo/blog/2014/01/01/x11-forwarding-and-terminal-multiplexers/
+function update-x11-forwarding() {
+    if [ -z "$STY" -a -z "$TMUX" ]; then
+        echo $DISPLAY > ~/.display.txt
+    else
+        export DISPLAY=`cat ~/.display.txt`
+    fi
+}
+
+PROMPT_COMMAND="update-x11-forwarding; $PROMPT_COMMAND"
 
 # Optional machine-specific aliases
 test -f ~/.bashrc.local && . ~/.bashrc.local
