@@ -36,6 +36,7 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-liquid'
 
 " Better alternative to using .viminfo to remember last line
 Plugin 'dietsche/vim-lastplace'

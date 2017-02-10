@@ -24,7 +24,7 @@ au BufNewFile,BufRead *.bpg,*.BPG set ft=make|setlocal makeprg=make\ -f\ %
 au BufNewFile,BufRead *.i set filetype=swig
 au BufNewFile,BufRead *.swg set filetype=swig
 
-au BufNewFile,BufRead *.proto setfiletype proto
+au BufNewFile,BufRead *.proto set filetype=proto spellcapcheck=
 
 au BufNewFile,BufRead *.jspx set filetype=jsp
 au BufNewFile,BufRead *.json set filetype=javascript
