@@ -17,10 +17,12 @@ let &runtimepath = &runtimepath . "," . homesick . "/repos/vundle"
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'elzr/vim-json'
+Plugin 'vim-syntastic/syntastic'
 
 " TODO: Doesn't work in Ubuntu 14.04's tmux 1.8
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -142,6 +144,16 @@ let g:jsx_ext_required = 0
 " From http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
 " See that file for much more sophisticated versions.
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" Recommended Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc
