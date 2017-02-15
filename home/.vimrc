@@ -38,10 +38,16 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+
+" Liquid templating support (as used in Jekyll)
 Plugin 'tpope/vim-liquid'
 
 " Better alternative to using .viminfo to remember last line
 Plugin 'dietsche/vim-lastplace'
+
+" Text objects for comments
+Plugin 'kana/vim-textobj-user'
+Plugin 'glts/vim-textobj-comment'
 
 call vundle#end()
 
