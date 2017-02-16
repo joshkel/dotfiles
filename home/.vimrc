@@ -18,32 +18,29 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'elzr/vim-json'
 Plugin 'vim-syntastic/syntastic'
 
 " TODO: Doesn't work in Ubuntu 14.04's tmux 1.8
 Plugin 'ConradIrwin/vim-bracketed-paste'
 
-" Support for ES2015, among other things
-" See https://davidosomething.com/blog/vim-for-javascript/
-Plugin 'othree/yajs'
-
-" Usage - :JSHint
-Plugin 'Shutnik/jshint2.vim'
-
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-
-" Liquid templating support (as used in Jekyll)
-Plugin 'tpope/vim-liquid'
-
 " Better alternative to using .viminfo to remember last line
 Plugin 'dietsche/vim-lastplace'
+
+Plugin 'sheerun/vim-polyglot'
+" Individual languages, already included in vim-polyglot
+" Plugin 'othree/html5.vim'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'elzr/vim-json'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'tpope/vim-liquid'
+" Plugin 'mustache/vim-mustache-handlebars'
+" Individual languages, tentatively replaced with vim-polyglot
+" Plugin 'hail2u/vim-css3-syntax'
+" Support for ES2015, among other things
+" See https://davidosomething.com/blog/vim-for-javascript/
+" Plugin 'othree/yajs'
 
 " Text objects for comments
 Plugin 'kana/vim-textobj-user'
@@ -160,6 +157,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" C++ checkers are slow and need additional configuration.  Disable for now.
+let g:syntastic_cpp_checkers = []
 
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc
