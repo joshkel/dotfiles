@@ -148,18 +148,20 @@ let g:jsx_ext_required = 0
 " See that file for much more sophisticated versions.
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
-" Recommended Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+if !empty(glob(expand("<sfile>:p:h") . "/.vim/bundle/syntastic"))
+    " Recommended Syntastic settings
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
-" C++ checkers are slow and need additional configuration.  Disable for now.
-let g:syntastic_cpp_checkers = []
+    " C++ checkers are slow and need additional configuration.  Disable for now.
+    let g:syntastic_cpp_checkers = []
+endif
 
 " Other useful resources:
 " http://vim.wikia.com/wiki/Example_vimrc
