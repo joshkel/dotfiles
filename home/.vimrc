@@ -175,6 +175,7 @@ endif
 " https://github.com/tpope/vim-sensible
 " http://vim-bootstrap.com/
 " https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+" http://www.liuchengxu.org/posts/use-vim-as-a-python-ide/
 "
 " For Ctags in particular:
 " https://advancedweb.hu/2017/01/10/vim-scala-ag-ctags/
