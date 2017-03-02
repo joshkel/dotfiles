@@ -161,6 +161,8 @@ if !empty(glob(expand("<sfile>:p:h") . "/.vim/bundle/syntastic"))
 
     " C++ checkers are slow and need additional configuration.  Disable for now.
     let g:syntastic_cpp_checkers = []
+
+    let g:syntastic_python_checkers = ['flake8']
 endif
 
 " Other useful resources:
