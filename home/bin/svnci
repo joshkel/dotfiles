@@ -5,7 +5,7 @@
 
 set -e
 
-wcroot=$(svn info "$@" | perl -ne '/Working Copy Root Path: *(.*)/ and print $1' | head -n 1)
+wcroot=$(svn info "$@" | perl -nE '/Working Copy Root Path: *(.*)/ and say $1' | head -n 1)
 if [ -z "$wcroot" ]; then
     echo "Failed to determine working copy root" 1>&2
     exit 1
