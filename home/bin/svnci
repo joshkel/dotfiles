@@ -5,31 +5,31 @@
 
 set -e
 
-wcroot=$(svn info $* | perl -ne '/Working Copy Root Path: *(.*)/ and print $1' | head -n 1)
+wcroot=$(svn info "$@" | perl -nE '/Working Copy Root Path: *(.*)/ and say $1' | head -n 1)
 if [ -z "$wcroot" ]; then
     echo "Failed to determine working copy root" 1>&2
     exit 1
 fi
 commitmsg=$wcroot/svn-commit.tmp
 
-gview -f <(svn diff $*) > /dev/null &
+gview -f <(svn diff "$@") > /dev/null &
 diff_pid=$!
-trap "kill $diff_pid 2>/dev/null" EXIT
+trap 'kill $diff_pid 2>/dev/null' EXIT
 
-gvim -f $commitmsg > /dev/null &
+gvim -f "$commitmsg" > /dev/null &
 commit_pid=$!
-trap "kill $commit_pid 2>/dev/null" INT
+trap 'kill $commit_pid 2>/dev/null' INT
 
 wait $commit_pid
 
-if [ ! -s $commitmsg ]; then
-    echo $commitmsg is empty, aborting
-    rm -f $commitmsg
+if [ ! -s "$commitmsg" ]; then
+    echo "$commitmsg is empty, aborting"
+    rm -f "$commitmsg"
     exit 1
 fi
 
-svn ci $* -F $commitmsg
-rm $commitmsg
+svn ci "$@" -F "$commitmsg"
+rm "$commitmsg"
 
 # Delete any temporary Vim files left by aborted commits.
-rm -f .${commitmsg}.swp
+rm -f ".${commitmsg}.swp"
