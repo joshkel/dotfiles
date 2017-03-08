@@ -60,7 +60,7 @@ source "${GITAWAREPROMPT}/main.sh"
 # Also depends on git-aware-prompt
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # For more bash history options, see http://unix.stackexchange.com/q/1288,
 # http://stackoverflow.com/questions/103944
@@ -216,6 +216,8 @@ if [ -d ~/.rbenv/bin ]; then
     eval "$(rbenv init -)"
 fi
 
+alias be='bundle exec'
+
 
 # Subversion
 # From frankcortes/svn-stash:
@@ -281,14 +283,14 @@ function start_agent {
 }
 
 # Sample ssh-agent setup
-#if [ -f "${SSH_ENV}" ]; then
-#     . "${SSH_ENV}" > /dev/null
-#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-#        start_agent;
-#    }
-#else
-#    start_agent;
-#fi
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 
 
 # Homeshick configuration. See the Homeshick tutorial.
