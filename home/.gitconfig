@@ -4,16 +4,26 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-    excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
 [alias]
 	ci = commit
 	st = status
-    unstage = reset HEAD
-# Further ideas: http://gggritso.com/human-git-aliases
-[submodule]
-	fetchJobs = 4
+	unstage = reset HEAD
+	showtool = "!f() { git difftool $1^ $1; }; f"
+	added = difftool --cached
 [diff]
 	algorithm = patience
+    tool = icdiff
+# Further ideas: http://gggritso.com/human-git-aliases
+[difftool]
+	prompt = false
+[difftool "icdiff"]
+	cmd = ~/bin/icdiff --line-numbers $LOCAL $REMOTE
+[pager]
+	difftool = true
+# difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
+[submodule]
+	fetchJobs = 4
 # vim: set noet
