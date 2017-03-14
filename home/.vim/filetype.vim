@@ -53,6 +53,7 @@ au BufNewFile,BufRead .node_repl_history set filetype=javascript
 " Valgrind filenames that I like to use
 au BufRead valgrind.out set filetype=valgrind
 au BufRead helgrind.out set filetype=valgrind
+au BufRead *.supp set filetype=supp
 
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
