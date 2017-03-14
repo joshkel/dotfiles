@@ -60,7 +60,7 @@ source "${GITAWAREPROMPT}/main.sh"
 # Also depends on git-aware-prompt
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # For more bash history options, see http://unix.stackexchange.com/q/1288,
 # http://stackoverflow.com/questions/103944
