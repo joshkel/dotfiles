@@ -5,12 +5,6 @@
 # the default umask is set in /etc/login.defs
 #umask 022
 
-# Include .bashrc if it exists
-# See http://superuser.com/a/183980/4160
-if [[ $- == *i* && -r ~/.bashrc ]]; then
-    . ~/.bashrc
-fi
-
 
 SSH_ENV=$HOME/.ssh/environment
 
@@ -33,4 +27,11 @@ if [ -f "${SSH_ENV}" ]; then
     }
 else
     start_agent;
+fi
+
+
+# Include .bashrc if it exists
+# See http://superuser.com/a/183980/4160
+if [[ $- == *i* && -r ~/.bashrc ]]; then
+    . ~/.bashrc
 fi
