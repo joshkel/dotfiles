@@ -313,7 +313,7 @@ fi
 # If not in screen or tmux, update the DISPLAY cache.
 # If we are, update the value of DISPLAY to be that in the cache.
 # Source: http://alexteichman.com/octo/blog/2014/01/01/x11-forwarding-and-terminal-multiplexers/
-function update-x11-forwarding() {
+function update_x11_forwarding() {
     if [ -z "$STY" -a -z "$TMUX" ]; then
         echo $DISPLAY > ~/.display.txt
     else
@@ -321,7 +321,7 @@ function update-x11-forwarding() {
     fi
 }
 
-PROMPT_COMMAND="update-x11-forwarding; $PROMPT_COMMAND"
+PROMPT_COMMAND="update_x11_forwarding; $PROMPT_COMMAND"
 
 # Optional machine-specific aliases
 test -f ~/.bashrc.local && . ~/.bashrc.local
