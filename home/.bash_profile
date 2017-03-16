@@ -11,30 +11,26 @@ if [[ $- == *i* && -r ~/.bashrc ]]; then
     . ~/.bashrc
 fi
 
-export NPM_PACKAGES="$HOME/.npm-packages"
-export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
+SSH_ENV=$HOME/.ssh/environment
+
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+
+# Sample ssh-agent setup
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
 fi
-export PATH="$NPM_PACKAGES/bin":~/.cabal/bin:"${PATH}":/sbin:/usr/sbin
-
-# May want to add "$NPM_PACKAGES/share/man" to MANPATH
-
-# On OS X, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
-if [ -d /usr/local/opt/coreutils ]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH
-    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-fi
-
-if [ -d /Applications/Postgres.app ]; then
-    export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-fi
-
-# Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
-
-# Sample of explicitly setting Java for Debian / Ubuntu.  Not needed.
-#export JAVA_HOME=/usr/lib/jvm/java-6-sun
-
