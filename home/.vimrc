@@ -163,6 +163,8 @@ if !empty(glob(expand("<sfile>:p:h") . "/.vim/bundle/syntastic"))
     let g:syntastic_cpp_checkers = []
 
     let g:syntastic_python_checkers = ['flake8']
+
+    let g:syntastic_sh_shellcheck_args = "-x"
 endif
 
 " Other useful resources:

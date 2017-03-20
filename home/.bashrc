@@ -140,9 +140,10 @@ fi
 
 # man
 # See also https://www.reddit.com/r/programming/comments/4xyvoe/colorized_man_pages/
-if which most >& /dev/null; then
-    export MANPAGER=most
-fi
+#if which most >& /dev/null; then
+#    export MANPAGER=most
+#fi
+export MANPAGER=~/bin/vimmanpager
 
 # Common directories
 shopt -s cdable_vars
