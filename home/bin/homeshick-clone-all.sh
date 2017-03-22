@@ -4,17 +4,18 @@
 
 function clone() {
     repo=$1
-    if [ -d ~/.homesick/repos/$(basename $repo) ]; then
-        echo $repo already exists, skipping...
+    if [ -d ~/.homesick/repos/"$(basename "$repo")" ]; then
+        echo "$repo already exists, skipping..."
         return
     fi
-    homeshick clone $repo
+    homeshick clone "$repo"
 }
 
 clone joshkel/dotfiles
 clone gmarik/vundle
 clone jeffkaufman/icdiff
 clone jimeh/git-aware-prompt
+clone joshkel/gtpp
 
 # gibrown fork is newer.  Unfortunately, neither works well.
 #clone frankcortes/svn-stash

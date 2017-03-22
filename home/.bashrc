@@ -216,6 +216,10 @@ alias rbgrep='ack --ruby'
 alias histgrep='history | grep'
 
 
+# C++
+export GTEST_RUNNER="~/.homesick/repos/gtpp/gtpp.py --failures-only"
+
+
 # Ruby Gems
 if [ -d "$HOME/gems" ]; then
     export GEM_HOME=$HOME/gems
