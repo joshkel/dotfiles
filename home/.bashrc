@@ -1,3 +1,6 @@
+#!/bin/bash
+# shellcheck disable=1090,2034
+
 # If not running interactively, don't do anything
 # Comment out for now; having non-interactive aliases is useful
 #[[ "$-" != *i* ]] && return
@@ -10,7 +13,7 @@ export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-export PATH="$NPM_PACKAGES/bin":~/.cabal/bin:"${PATH}":/sbin:/usr/sbin
+export PATH="$NPM_PACKAGES/bin:~/.cabal/bin:${PATH}:/sbin:/usr/sbin"
 
 # May want to add "$NPM_PACKAGES/share/man" to MANPATH
 
@@ -89,6 +92,7 @@ source "${GITAWAREPROMPT}/main.sh"
 # Also depends on git-aware-prompt
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# shellcheck disable=2154
 PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # For more bash history options, see http://unix.stackexchange.com/q/1288,
@@ -109,7 +113,7 @@ fi
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" -a -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
@@ -194,7 +198,7 @@ fi
 alias schroot='schroot -p'
 if [ -f /usr/bin/schroot ]; then
     for f in /srv/chroot/*; do
-        CHROOT=`basename $f`
+        CHROOT=$(basename "$f")
         alias $CHROOT="schroot -c ${CHROOT}"
     done
     unset CHROOT
@@ -213,7 +217,7 @@ alias histgrep='history | grep'
 
 
 # Ruby Gems
-if [ -d $HOME/gems ]; then
+if [ -d "$HOME/gems" ]; then
     export GEM_HOME=$HOME/gems
     export GEM_PATH=$HOME/gems:/usr/lib/ruby/gems/1.8/
     export PATH=$HOME/gems/bin:$PATH
@@ -259,8 +263,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 if which brew >& /dev/null; then
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
+    if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+        . "$(brew --prefix)/etc/bash_completion"
     fi
 fi
 . ~/bin/django_bash_completion
