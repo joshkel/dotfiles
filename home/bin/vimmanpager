@@ -3,7 +3,6 @@
 # See also https://www.reddit.com/r/programming/comments/4xyvoe/colorized_man_pages/
 sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | \
     vim \
-        -c 'set bg=dark' \
         -c 'set scrolloff=4' \
         -c 'set ts=8' \
         -c 'let no_plugin_maps = 1' \
