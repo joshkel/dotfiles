@@ -231,6 +231,9 @@ fi
 # Python
 export PYTHONSTARTUP=~/.pythonrc
 
+# Python packages installed via `pip install --user`
+export PATH=$HOME/.local/bin
+
 # Manually managed virtualenv:
 #alias pyenv='source ~/pyenv/bin/activate'
 
