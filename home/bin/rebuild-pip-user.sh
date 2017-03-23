@@ -15,10 +15,10 @@ packages="appdirs packaging"
 packages="ipython $packages"
 
 # My linter of choice.
-packages="flake8 $packages"
+packages="flake8 pep8-naming $packages"
 
 /usr/bin/pip2 install --user -U pip
-~/.local/bin/pip2 install --user -U appdirs ipython packaging
+~/.local/bin/pip2 install --user -U $packages
 
 /usr/bin/pip3 install --user -U pip packaging
-~/.local/bin/pip3 install --user -U appdirs ipython packaging
+~/.local/bin/pip3 install --user -U $packages
