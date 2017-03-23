@@ -232,7 +232,7 @@ fi
 export PYTHONSTARTUP=~/.pythonrc
 
 # Python packages installed via `pip install --user`
-export PATH=$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 
 # Manually managed virtualenv:
 #alias pyenv='source ~/pyenv/bin/activate'
