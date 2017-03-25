@@ -135,6 +135,8 @@ alias l='ls -CF'
 
 alias please='sudo !!'
 
+alias tmux='tmux -2'
+
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
     alias gvim=mvim
@@ -337,3 +339,14 @@ PROMPT_COMMAND="update_x11_forwarding; $PROMPT_COMMAND"
 
 # Optional machine-specific aliases
 test -f ~/.bashrc.local && . ~/.bashrc.local
+
+# Sample Powerline configuration.  This assumes that you ran
+# pip3 install --user powerline-status
+# For this to look okay in PuTTY, you need to install and configure
+# https://github.com/Determinant/inconsolata_for_powerline_mod
+if which powerline-daemon >& /dev/null; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . $(python3 -m site --user-site)/powerline/bindings/bash/powerline.sh
+fi
