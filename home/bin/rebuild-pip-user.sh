@@ -21,4 +21,4 @@ packages="flake8 pep8-naming $packages"
 ~/.local/bin/pip2 install --user -U $packages
 
 /usr/bin/pip3 install --user -U pip packaging
-~/.local/bin/pip3 install --user -U $packages powerline
+~/.local/bin/pip3 install --user -U $packages

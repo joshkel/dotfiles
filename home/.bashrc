@@ -344,9 +344,9 @@ test -f ~/.bashrc.local && . ~/.bashrc.local
 # pip3 install --user powerline-status
 # For this to look okay in PuTTY, you need to install and configure
 # https://github.com/Determinant/inconsolata_for_powerline_mod
-if which powerline-daemon >& /dev/null; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    . $(python3 -m site --user-site)/powerline/bindings/bash/powerline.sh
-fi
+#if which powerline-daemon >& /dev/null; then
+#    powerline-daemon -q
+#    POWERLINE_BASH_CONTINUATION=1
+#    POWERLINE_BASH_SELECT=1
+#    . $(python3 -m site --user-site)/powerline/bindings/bash/powerline.sh
+#fi
