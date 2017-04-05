@@ -55,8 +55,13 @@ au BufRead valgrind.out set filetype=valgrind
 au BufRead helgrind.out set filetype=valgrind
 au BufRead *.supp set filetype=supp
 
+" Jest snapshots.  These are actually JavaScript, but they mostly look like
+" HTML... (jsx would work too.)
+au BufRead *.js.snap set filetype=html | ToggleWhitespace
+
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
 au BufNewFile,BufRead *.ll set filetype=llvm
 au BufNewFile,BufRead *.rockspec set filetype=lua
+

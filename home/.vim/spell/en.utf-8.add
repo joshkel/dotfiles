@@ -191,3 +191,7 @@ xenial
 CivetWeb
 passphrase
 backticks
+lifecycle
+SIGINT
+async
+SIGSEGV
