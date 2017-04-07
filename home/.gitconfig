@@ -15,7 +15,7 @@
 	added = difftool --cached
 [diff]
 	algorithm = patience
-    tool = icdiff
+	tool = icdiff
 # Further ideas: http://gggritso.com/human-git-aliases
 [difftool]
 	prompt = false
