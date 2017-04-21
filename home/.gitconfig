@@ -13,10 +13,11 @@
 	unstage = reset HEAD
 	showtool = "!f() { git difftool $1^ $1; }; f"
 	added = difftool --cached
+	lol = log --oneline --graph --decorate --all
+# Further ideas: http://gggritso.com/human-git-aliases
 [diff]
 	algorithm = patience
 	tool = icdiff
-# Further ideas: http://gggritso.com/human-git-aliases
 [difftool]
 	prompt = false
 [difftool "icdiff"]
@@ -26,4 +27,4 @@
 # difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [submodule]
 	fetchJobs = 4
-# vim: set noet
+# vim: noet

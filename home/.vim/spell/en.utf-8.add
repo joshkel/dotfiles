@@ -195,3 +195,7 @@ lifecycle
 SIGINT
 async
 SIGSEGV
+sudo
+NOQA
+noinspection
+PyPep8Naming
