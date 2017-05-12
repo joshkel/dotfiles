@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pip install -U $(pip list --outdated --format=legacy | awk '!/Could not|ignored/ { print $1}')
