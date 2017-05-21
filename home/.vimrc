@@ -21,6 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'editorconfig/editorconfig-vim'
 
 " TODO: Doesn't work in Ubuntu 14.04's tmux 1.8
 Plugin 'ConradIrwin/vim-bracketed-paste'
