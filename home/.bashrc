@@ -164,9 +164,9 @@ fi
 # Windows, Cygwin, Embarcadero RAD Studio
 if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
     export cygPROGRAMFILES='/cygdrive/c/Program Files (x86)'
-    alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0"'
-    alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0/include"'
-    alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/Studio/17.0/source"'
+    alias cdcg='cd "$cygPROGRAMFILES/Embarcadero/Studio/19.0"'
+    alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/Studio/19.0/include"'
+    alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/Studio/19.0/source"'
 
     alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
 fi
