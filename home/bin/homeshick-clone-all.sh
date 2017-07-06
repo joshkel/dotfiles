@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=SC1090
 . ~/.homesick/repos/homeshick/homeshick.sh
 
 function clone() {
@@ -15,6 +16,7 @@ clone joshkel/dotfiles
 clone gmarik/vundle
 clone jeffkaufman/icdiff
 clone jimeh/git-aware-prompt
+clone jimeh/tmux-themepack
 clone joshkel/gtpp
 
 # gibrown fork is newer.  Unfortunately, neither works well.
