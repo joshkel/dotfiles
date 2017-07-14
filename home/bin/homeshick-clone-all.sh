@@ -22,3 +22,6 @@ clone joshkel/gtpp
 # gibrown fork is newer.  Unfortunately, neither works well.
 #clone frankcortes/svn-stash
 clone gibrown/svn-stash
+
+# Make sure that Homeshick sees the newly cloned repos as up to date.
+homeshick pull
