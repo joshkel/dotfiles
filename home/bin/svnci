@@ -12,11 +12,11 @@ if [ -z "$wcroot" ]; then
 fi
 commitmsg=$wcroot/svn-commit.tmp
 
-gview -f <(svn diff "$@") > /dev/null &
+gview -f <(svn diff "$@") -c "set lines=25 columns=80" > /dev/null &
 diff_pid=$!
 trap 'kill $diff_pid 2>/dev/null' EXIT
 
-gvim -f "$commitmsg" > /dev/null &
+gvim -f "$commitmsg" -c "set lines=25 columns=80" > /dev/null &
 commit_pid=$!
 trap 'kill $commit_pid 2>/dev/null' INT
 
