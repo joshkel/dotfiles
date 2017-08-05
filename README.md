@@ -3,6 +3,8 @@ These are my dotfiles.
 To get started:
 
 ```bash
+cat <<EOF | bash
+set -e
 cd ~
 git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 . .homesick/repos/homeshick/homeshick.sh
@@ -13,4 +15,6 @@ homeshick cd dotfiles
 git remote set-url --push origin git@github.com:joshkel/dotfiles.git
 cd ~
 . .bashrc
+vim +PluginInstall +qall
+EOF
 ```
