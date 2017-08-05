@@ -331,7 +331,10 @@ function update_x11_forwarding() {
     if [ -z "$STY" -a -z "$TMUX" ]; then
         echo $DISPLAY > ~/.display.txt
     else
-        export DISPLAY=`cat ~/.display.txt`
+        local new_display=$(cat ~/.display.txt)
+        if [ ! -z "$new_display" ]; then
+            export DISPLAY=$new_display
+        fi
     fi
 }
 

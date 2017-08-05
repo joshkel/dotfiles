@@ -206,3 +206,6 @@ namespaces
 YAML
 linting
 Phabricator
+shaders
+whitespace
+shader
