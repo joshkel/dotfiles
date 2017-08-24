@@ -182,6 +182,7 @@ endif
 " https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 " http://www.liuchengxu.org/posts/use-vim-as-a-python-ide/
 " https://hackernoon.com/5-vim-plugins-i-cant-live-without-for-javascript-development-f7e98f98e8d5#.1idq2o5pu
+" https://dougblack.io/words/a-good-vimrc.html
 "
 " For Ctags in particular:
 " https://advancedweb.hu/2017/01/10/vim-scala-ag-ctags/

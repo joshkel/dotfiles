@@ -19,6 +19,9 @@ clone jimeh/git-aware-prompt
 clone jimeh/tmux-themepack
 clone joshkel/gtpp
 
+# This is currently the newest fork of Boost-Pretty-Printer.
+clone mbalabin/Boost-Pretty-Printer
+
 # gibrown fork is newer.  Unfortunately, neither works well.
 #clone frankcortes/svn-stash
 clone gibrown/svn-stash
