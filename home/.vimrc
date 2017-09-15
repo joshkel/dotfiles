@@ -1,6 +1,6 @@
 syntax on
 set t_Co=256
-set ts=4 sw=4 is autoindent et modeline title
+set ts=4 sw=4 softtabstop=4 is autoindent et modeline title
 set backspace=indent,eol,start
 set enc=utf-8
 " Buggy in MacVim
@@ -11,6 +11,8 @@ endif
 if !exists("homesick")
     let homesick = $HOME . "/.homesick"
 endif
+
+set wildmenu
 
 filetype off
 let &runtimepath = &runtimepath . "," . homesick . "/repos/vundle"
@@ -119,6 +121,12 @@ end
 " Hard-code Homeshick's paths so that we work on Windows as well as POSIX
 map <leader>ro :e ~/.homesick/repos/dotfiles/home/.vimrc<CR>
 map <leader>rr :source ~/.homesick/repos/dotfiles/home/.vimrc<CR>
+
+set incsearch  " search as characters are entered
+set hlsearch   " highlight matches
+
+" Map \<space> to turn off highlighting.
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Map Ctrl-Left and Ctrl-Right to :prev (previous file) and :next (next file),
 " respectively
