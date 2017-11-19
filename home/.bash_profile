@@ -20,7 +20,7 @@ function start_agent {
 }
 
 # Sample ssh-agent setup
-if [ -d ~/.ssh ]; then
+if [ -d ~/.ssh -a -z "$SSH_AUTH_SOCK" ]; then
     if [ -f "${SSH_ENV}" ]; then
          . "${SSH_ENV}" > /dev/null
          ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
