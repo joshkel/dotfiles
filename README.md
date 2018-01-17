@@ -14,7 +14,9 @@ homeshick pull
 homeshick cd dotfiles
 git remote set-url --push origin git@github.com:joshkel/dotfiles.git
 cd ~
+EOF
+
+# If all of the above worked:
 . .bashrc
 vim +PluginInstall +qall
-EOF
 ```
