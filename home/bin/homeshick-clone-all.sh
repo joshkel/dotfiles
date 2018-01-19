@@ -17,14 +17,24 @@ clone gmarik/vundle
 clone jeffkaufman/icdiff
 clone jimeh/git-aware-prompt
 clone jimeh/tmux-themepack
+
+# gibrown fork is newer.  Unfortunately, neither works well.
+#clone frankcortes/svn-stash
+clone gibrown/svn-stash
+
+####
+# C++
 clone joshkel/gtpp
 
 # This is currently the newest fork of Boost-Pretty-Printer.
 clone mbalabin/Boost-Pretty-Printer
 
-# gibrown fork is newer.  Unfortunately, neither works well.
-#clone frankcortes/svn-stash
-clone gibrown/svn-stash
+####
+# PHP
+clone DexterHD/codecept-bash-completion
+
+####
+# Finish
 
 # Make sure that Homeshick sees the newly cloned repos as up to date.
 homeshick pull
