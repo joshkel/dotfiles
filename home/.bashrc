@@ -218,9 +218,12 @@ alias rbgrep='ack --ruby'
 alias histgrep='history | grep'
 
 
+# Vagrant
+# See https://www.vagrantup.com/docs/other/wsl.html
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=1
+
 # C++
 export GTEST_RUNNER="~/.homesick/repos/gtpp/gtpp.py --failures-only"
-
 
 # Ruby Gems
 if [ -d "$HOME/gems" ]; then
