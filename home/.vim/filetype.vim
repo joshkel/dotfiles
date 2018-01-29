@@ -59,6 +59,9 @@ au BufRead *.supp set filetype=supp
 " HTML... (jsx would work too.)
 au BufRead *.js.snap set filetype=html | ToggleWhitespace
 
+" Jenkinsfile uses Groovy
+au BufNewFile,BufRead Jenkinsfile set filetype=groovy
+
 " Other
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead upstart set filetype=upstart
