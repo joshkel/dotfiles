@@ -137,6 +137,9 @@ alias please='sudo !!'
 
 alias tmux='tmux -2'
 
+# Fix SSH forwarding within tmux.  https://stackoverflow.com/a/40967729/25507
+alias fixssh='export $(tmux showenv SSH_AUTH_SOCK)'
+
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
     alias gvim=mvim
