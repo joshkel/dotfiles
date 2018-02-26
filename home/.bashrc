@@ -142,7 +142,7 @@ alias fixssh='export $(tmux showenv SSH_AUTH_SOCK)'
 
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
-    alias gvim=mvim
+    alias gvim=/Applications/MacVim.app/Contents/bin/mvim
 fi
 
 . ~/.homesick/repos/dotfiles/home/bin/upto.sh
