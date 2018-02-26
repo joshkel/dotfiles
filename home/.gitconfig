@@ -4,6 +4,7 @@
 [core]
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
+	whitespace = cr-at-eol
 [push]
 	default = simple
 [alias]
