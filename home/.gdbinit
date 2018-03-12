@@ -13,6 +13,15 @@ add-auto-load-safe-path ~/trunk/app/scripts/gdbinit
 add-auto-load-safe-path /usr/lib/libstdc++.so.6.0.21-gdb.py
 add-auto-load-safe-path /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21-gdb.py
 
+# TODO: Figure out how to make this work
+# See https://stackoverflow.com/q/41160447/25507,
+# https://stackoverflow.com/q/40391404/25507,
+# https://chezsoi.org/lucas/blog/gdb-python-macros
+# Maybe the problem is virtual environments?
+#set debug auto-load
+#add-auto-load-safe-path /usr/lib/debug/usr/bin/python3.4-gdb.py
+#set auto-load python-scripts on
+
 # libstd++ pretty printers, as provided by Ubuntu.
 # See https://sourceware.org/gdb/wiki/STLSupport.
 python
@@ -25,8 +34,8 @@ for d in ['/usr/share/gcc-7/python', '/usr/share/gcc-6/python', '/usr/share/gcc-
 try:
     from libstdcxx.v6.printers import register_libstdcxx_printers
     register_libstdcxx_printers (None)
-except ImportError:
-    print("libstdc++ pretty printers are unavailable")
+except ImportError as e:
+    print("libstdc++ pretty printers are unavailable: " + str(e))
 end
 
 # From https://github.com/mbalabin/Boost-Pretty-Printer (a newer fork of
@@ -40,5 +49,8 @@ if sys.version_info > (2, 7):
     if os.path.exists(boost_dir):
         sys.path.insert(0, boost_dir)
         import boost
-        boost.register_printers()
+        try:
+            boost.register_printers()
+        except Exception as e:
+            print("Boost pretty printers are unavailable: " + str(e))
 end
