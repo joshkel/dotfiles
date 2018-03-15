@@ -14,7 +14,9 @@
 	showtool = "!f() { git difftool $1^ $1; }; f"
 	added = difftool --cached
 	lol = log --oneline --graph --decorate --all
-# Further ideas: http://gggritso.com/human-git-aliases
+	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+# Further ideas: http://gggritso.com/human-git-aliases,
+# https://gist.github.com/tdd/470582
 [diff]
 	algorithm = patience
 	tool = icdiff
@@ -27,4 +29,6 @@
 # difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [submodule]
 	fetchJobs = 4
+[pull]
+	rebase = preserve
 # vim: noet

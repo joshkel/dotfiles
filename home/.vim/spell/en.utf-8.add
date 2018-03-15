@@ -210,3 +210,8 @@ shaders
 whitespace
 shader
 ABI
+nullability
+enums
+GraphQL
+TypeScript
+WebStorm
