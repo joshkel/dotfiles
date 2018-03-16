@@ -4,6 +4,8 @@
 [core]
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
+# This makes it a lot less painful to mix Cygwin git and Git for Windows on
+# Windows repositories.
 	whitespace = cr-at-eol
 [push]
 	default = simple
@@ -19,6 +21,7 @@
 # https://gist.github.com/tdd/470582
 [diff]
 	algorithm = patience
+	mnemonicPrefix = true
 	tool = icdiff
 [difftool]
 	prompt = false
