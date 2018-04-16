@@ -17,6 +17,7 @@
 	added = difftool --cached
 	lol = log --oneline --graph --decorate --all
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	update-remote-branches = remote update origin --prune
 # Further ideas: http://gggritso.com/human-git-aliases,
 # https://gist.github.com/tdd/470582
 [diff]
