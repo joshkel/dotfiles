@@ -27,7 +27,6 @@ au BufNewFile,BufRead *.swg set filetype=swig
 au BufNewFile,BufRead *.proto set filetype=proto spellcapcheck=
 
 au BufNewFile,BufRead *.jspx set filetype=jsp
-au BufNewFile,BufRead *.json set filetype=javascript
 
 " Embarcadero RAD Studio projects
 au BufNewFile,BufRead *.dproj set filetype=xml
@@ -45,6 +44,7 @@ au BufNewFile,BufRead /usr/include/c++/* set filetype=cpp
 " Web development-related config files
 au BufNewFile,BufRead .babelrc set filetype=json
 au BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .graphqlconfig set filetype=json
 au BufNewFile,BufRead .jscsrc set filetype=json
 
 " More web development
