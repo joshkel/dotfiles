@@ -224,7 +224,8 @@
 #c.InteractiveShell.object_info_string_level = 0
 
 ## Automatically call the pdb debugger after every exception.
-c.InteractiveShell.pdb = True
+#  joshkel@gmail.com: This is really useful for debugging but not for REPL'ing.
+#  c.InteractiveShell.pdb = True
 
 ## Deprecated since IPython 4.0 and ignored since 5.0, set
 #  TerminalInteractiveShell.prompts object directly.
