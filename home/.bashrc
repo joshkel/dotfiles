@@ -240,7 +240,12 @@ fi
 export PYTHONSTARTUP=~/.pythonrc
 
 # Python packages installed via `pip install --user`
-export PATH=$HOME/.local/bin:$PATH
+# See https://stackoverflow.com/a/38112757/25507
+python_site_dir=$(python3  -c "import site; print(site.USER_BASE)" 2>/dev/null)
+if [ ! -z "$python_site_dir" ]; then
+    export PATH=$python_site_dir/bin:$PATH
+fi
+unset python_site_dir
 
 # Manually managed virtualenv:
 #alias pyenv='source ~/pyenv/bin/activate'
