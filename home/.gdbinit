@@ -22,6 +22,9 @@ add-auto-load-safe-path /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21-gdb.py
 #add-auto-load-safe-path /usr/lib/debug/usr/bin/python3.4-gdb.py
 #set auto-load python-scripts on
 
+# For Mono
+handle SIGXCPU SIG33 SIG35 SIG36 SIG37 SIG38 SIGPWR nostop noprint
+
 # libstd++ pretty printers, as provided by Ubuntu.
 # See https://sourceware.org/gdb/wiki/STLSupport.
 python
