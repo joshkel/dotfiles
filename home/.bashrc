@@ -263,6 +263,14 @@ if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 #To use Homebrew's directories rather than ~/.pyenv add to your profile:
 #export PYENV_ROOT=/usr/local/var/pyenv
 
+# virtualenvwrapper
+if which python3 >& /dev/null; then
+    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+fi
+if which virtualenvwrapper.sh >& /dev/null; then
+    . $(which virtualenvwrapper.sh)
+fi
+
 
 # Ruby
 # rbenv was installed using
