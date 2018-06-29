@@ -6,9 +6,6 @@
 #[[ "$-" != *i* ]] && return
 
 
-export NPM_PACKAGES="$HOME/.npm-packages"
-export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
-
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
@@ -235,6 +232,13 @@ if [ -d "$HOME/gems" ]; then
     export PATH=$HOME/gems/bin:$PATH
 fi
 
+# Node
+export NPM_PACKAGES="$HOME/.npm-packages"
+export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
+export NVM_DIR=~/.nvm
+if which brew >& /dev/null; then
+    source $(brew --prefix nvm)/nvm.sh
+fi
 
 # Python
 export PYTHONSTARTUP=~/.pythonrc
