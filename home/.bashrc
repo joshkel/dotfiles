@@ -225,13 +225,6 @@ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=1
 # C++
 export GTEST_RUNNER="~/.homesick/repos/gtpp/gtpp.py --failures-only"
 
-# Ruby Gems
-if [ -d "$HOME/gems" ]; then
-    export GEM_HOME=$HOME/gems
-    export GEM_PATH=$HOME/gems:/usr/lib/ruby/gems/1.8/
-    export PATH=$HOME/gems/bin:$PATH
-fi
-
 # Node
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
@@ -284,6 +277,17 @@ fi
 
 alias be='bundle exec'
 
+# Ruby Gems
+# Manual / explicit Gem directory.  Replace with --user-install below.
+#if [ -d "$HOME/gems" ]; then
+#    export GEM_HOME=$HOME/gems
+#    export GEM_PATH=$HOME/gems:/usr/lib/ruby/gems/1.8/
+#    export PATH=$HOME/gems/bin:$PATH
+#fi
+
+if which ruby >/dev/null && which gem >/dev/null; then
+    export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # Subversion
 # From frankcortes/svn-stash:
