@@ -265,18 +265,6 @@ if which virtualenvwrapper.sh >& /dev/null; then
 fi
 
 
-# Ruby
-# rbenv was installed using
-#   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-#   cd ~/.rbenv && src/configure && make -C src
-#   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-if [ -d ~/.rbenv/bin ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
-alias be='bundle exec'
-
 # Ruby Gems
 # Manual / explicit Gem directory.  Replace with --user-install below.
 #if [ -d "$HOME/gems" ]; then
@@ -288,6 +276,18 @@ alias be='bundle exec'
 if which ruby >/dev/null && which gem >/dev/null; then
     export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
+
+# Ruby
+# rbenv was installed using
+#   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+#   cd ~/.rbenv && src/configure && make -C src
+#   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+if [ -d ~/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
+
+alias be='bundle exec'
 
 # Subversion
 # From frankcortes/svn-stash:
