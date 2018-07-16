@@ -10,11 +10,12 @@
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-export PATH="$NPM_PACKAGES/bin":~/.cabal/bin:${PATH}:/sbin:/usr/sbin
+export PATH=~/.cabal/bin:${PATH}:/sbin:/usr/sbin
 
-# May want to add "$NPM_PACKAGES/share/man" to MANPATH
-
-# On OS X, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
+# On macOS, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
+if [ -d /usr/local/opt/findutils ]; then
+    alias find=gfind
+fi
 if [ -d /usr/local/opt/coreutils ]; then
     export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
@@ -175,7 +176,6 @@ fi
 
 export EDITOR=vim
 export SVN_EDITOR=vim
-export PATH=$PATH:~/bin
 export LUA_CPATH=";;/usr/local/lib/lua/5.1/?.so"
 export GCC_COLORS=1
 
@@ -242,6 +242,10 @@ fi
 if type nvm >& /dev/null; then
     export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
 fi
+
+export PATH="$NPM_PACKAGES/bin":${PATH}
+
+# May want to add "$NPM_PACKAGES/share/man" to MANPATH
 
 # Python
 export PYTHONSTARTUP=~/.pythonrc
@@ -316,11 +320,6 @@ if command -v brew >& /dev/null; then
     fi
 fi
 . ~/bin/django_bash_completion
-
-# On OS X, use GNU stuff instead of OS X stuff, courtesy of Homebrew.
-if [ -d /usr/local/opt/findutils ]; then
-    alias find=gfind
-fi
 
 # See http://superuser.com/a/975878/4160
 alias brewski='brew update && brew upgrade --all && brew cleanup; brew doctor'
