@@ -109,7 +109,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" -a -x /usr/bin/dircolors ]; then
+if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='ls --color=auto --format=vertical'
@@ -137,6 +137,7 @@ alias tmux='tmux -2'
 # Fix SSH forwarding within tmux.  https://stackoverflow.com/a/40967729/25507
 alias fixssh='export $(tmux showenv SSH_AUTH_SOCK)'
 
+# shellcheck disable=SC2139
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
     alias gvim=/Applications/MacVim.app/Contents/bin/mvim
@@ -168,6 +169,7 @@ if [[ $(uname) != Darwin && $(uname -o) == Cygwin ]]; then
     alias cdinc='cd "$cygPROGRAMFILES/Embarcadero/Studio/19.0/include"'
     alias cdsrc='cd "$cygPROGRAMFILES/Embarcadero/Studio/19.0/source"'
 
+    # shellcheck disable=SC2139
     alias gvim="HOME=$(cygpath \"$HOMEDRIVE$HOMEPATH\") cmd /c gvim"
 fi
 
@@ -179,9 +181,9 @@ export GCC_COLORS=1
 
 # ack is known as ack-grep on Debian / Ubuntu.
 # But ag is even better.
-if which ag >& /dev/null; then
+if command -v ag >& /dev/null; then
     alias ack=ag
-elif ! which ack >& /dev/null; then
+elif ! command -v ack >& /dev/null; then
     alias ack=ack-grep
 fi
 
@@ -201,7 +203,8 @@ alias schroot='schroot -p'
 if [ -f /usr/bin/schroot ]; then
     for f in /srv/chroot/*; do
         CHROOT=$(basename "$f")
-        alias $CHROOT="schroot -c ${CHROOT}"
+        # shellcheck disable=SC2139
+        alias "$CHROOT=schroot -c ${CHROOT}"
     done
     unset CHROOT
 fi
@@ -255,7 +258,7 @@ unset python_site_dir
 #alias pyenv='source ~/pyenv/bin/activate'
 
 # Using pyenv:
-if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
+if command -v pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 
 #To activate *everything*:
 #pyenv shell system 2.7.10 3.3.6 3.2.6 3.1.5 2.6.9 2.5.6 pypy-c-jit-latest
@@ -264,11 +267,12 @@ if which pyenv >& /dev/null; then eval "$(pyenv init -)"; fi
 #export PYENV_ROOT=/usr/local/var/pyenv
 
 # virtualenvwrapper
-if which python3 >& /dev/null; then
-    export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+if command -v python3 >& /dev/null; then
+    VIRTUALENVWRAPPER_PYTHON=$(command -v python3)
+    export VIRTUALENVWRAPPER_PYTHON
 fi
-if which virtualenvwrapper.sh >& /dev/null; then
-    . $(which virtualenvwrapper.sh)
+if command -v virtualenvwrapper.sh >& /dev/null; then
+    . "$(command -v virtualenvwrapper.sh)"
 fi
 
 
@@ -280,8 +284,9 @@ fi
 #    export PATH=$HOME/gems/bin:$PATH
 #fi
 
-if which ruby >&/dev/null && which gem >&/dev/null; then
-    export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+if command -v ruby >&/dev/null && command -v gem >&/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    export PATH
 fi
 
 # Ruby
@@ -305,7 +310,7 @@ alias svn-icdiff='svn diff --diff-cmd=icdiff'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-if which brew >& /dev/null; then
+if command -v brew >& /dev/null; then
     if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
         . "$(brew --prefix)/etc/bash_completion"
     fi
@@ -349,7 +354,7 @@ ulimit -c unlimited
 
 # Homeshick configuration. See the Homeshick tutorial.
 # Skip this if we're running in a git-less chroot.
-if which git >& /dev/null; then
+if command -v git >& /dev/null; then
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
     source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
     if [[ $- == *i* ]]; then
@@ -362,10 +367,11 @@ fi
 # If we are, update the value of DISPLAY to be that in the cache.
 # Source: http://alexteichman.com/octo/blog/2014/01/01/x11-forwarding-and-terminal-multiplexers/
 function update_x11_forwarding() {
-    if [ -z "$STY" -a -z "$TMUX" ]; then
-        echo $DISPLAY > ~/.display.txt
+    if [ -z "$STY" ] && [ -z "$TMUX" ]; then
+        echo "$DISPLAY" > ~/.display.txt
     else
-        local new_display=$(cat ~/.display.txt)
+        local new_display
+        new_display=$(cat ~/.display.txt)
         if [ ! -z "$new_display" ]; then
             export DISPLAY=$new_display
         fi
