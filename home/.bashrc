@@ -223,14 +223,21 @@ alias histgrep='history | grep'
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=1
 
 # C++
-export GTEST_RUNNER="~/.homesick/repos/gtpp/gtpp.py --failures-only"
+export GTEST_RUNNER="$HOME/.homesick/repos/gtpp/gtpp.py --failures-only"
 
 # Node
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 export NVM_DIR=~/.nvm
-if which brew >& /dev/null; then
-    source $(brew --prefix nvm)/nvm.sh
+if command -v brew >& /dev/null; then
+    nvm_prefix=$(brew --prefix nvm 2>/dev/null)
+    if [ ! -z "$nvm_prefix" ]; then
+        source "$nvm_prefix"/nvm.sh
+    fi
+    unset nvm_prefix
+fi
+if type nvm >& /dev/null; then
+    export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
 fi
 
 # Python
