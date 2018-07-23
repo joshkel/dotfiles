@@ -18,6 +18,7 @@
 	lol = log --oneline --graph --decorate --all
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
 	update-remote-branches = remote update origin --prune
+	showtrackedignored = ls-files -i --exclude-standard
 # List local branches, including those that need to be pushed or pulled.
 # https://stackoverflow.com/q/39220870/25507
     unpushed1 = for-each-ref --format="%(refname:short) %(push:track)" refs/heads
