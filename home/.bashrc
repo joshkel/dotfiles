@@ -90,7 +90,7 @@ source "${GITAWAREPROMPT}/main.sh"
 # Also depends on git-aware-prompt
 #if [ $(uname) == 'Linux' ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-# shellcheck disable=2154
+# shellcheck disable=2154,1117
 PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # For more bash history options, see http://unix.stackexchange.com/q/1288,
@@ -235,12 +235,10 @@ export NVM_DIR=~/.nvm
 if command -v brew >& /dev/null; then
     nvm_prefix=$(brew --prefix nvm 2>/dev/null)
     if [ ! -z "$nvm_prefix" ]; then
+        export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
         source "$nvm_prefix"/nvm.sh
     fi
     unset nvm_prefix
-fi
-if type nvm >& /dev/null; then
-    export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
 fi
 
 export PATH="$NPM_PACKAGES/bin":${PATH}
@@ -312,9 +310,12 @@ alias svn-icdiff='svn diff --diff-cmd=icdiff'
 
 # Enable programmable completion.  May already be done in /etc/bash.bashrc.
 if [ -f /etc/bash_completion ]; then
+    # shellcheck disable=1091
     . /etc/bash_completion
 fi
 if command -v brew >& /dev/null; then
+    # Note that you may need to install some packages (git, bash-completion)
+    # for this to work as desired.
     if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
         . "$(brew --prefix)/etc/bash_completion"
     fi
