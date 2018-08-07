@@ -9,6 +9,10 @@
 	whitespace = cr-at-eol
 [push]
 	default = simple
+[pull]
+	rebase = preserve
+[fetch]
+	prune = true
 [alias]
 	ci = commit
 	st = status
@@ -33,11 +37,11 @@
 	prompt = false
 [difftool "icdiff"]
 	cmd = ~/bin/icdiff --line-numbers $LOCAL $REMOTE
+[difftool "bc"]
+	path = c:/Program Files/Beyond Compare 4/bcomp.exe
 [pager]
 	difftool = true
 # difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [submodule]
 	fetchJobs = 4
-[pull]
-	rebase = preserve
 # vim: noet
