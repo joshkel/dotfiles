@@ -21,6 +21,9 @@
 	added = difftool --cached
 	lol = log --oneline --graph --decorate --all
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	ignore = update-index --skip-worktree
+	unignore = update-index --no-skip-worktree
+	ignored = !git ls-files -v | grep \"^S\"
 	update-remote-branches = remote update origin --prune
 	showtrackedignored = ls-files -i --exclude-standard
 # List local branches, including those that need to be pushed or pulled.
