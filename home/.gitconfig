@@ -36,6 +36,7 @@
 	algorithm = patience
 	mnemonicPrefix = true
 	tool = icdiff
+	wsErrorHighlight = all
 [difftool]
 	prompt = false
 [difftool "icdiff"]
