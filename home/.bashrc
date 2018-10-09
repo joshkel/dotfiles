@@ -27,6 +27,9 @@ fi
 
 # Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
+if command -v heroku >& /dev/null; then
+    eval "$(heroku autocomplete:script bash)"
+fi
 
 # Sample of explicitly setting Java for Debian / Ubuntu.  Not needed.
 #export JAVA_HOME=/usr/lib/jvm/java-6-sun
