@@ -17,7 +17,7 @@ if [ -d /usr/local/opt/findutils ]; then
     alias find=gfind
 fi
 if [ -d /usr/local/opt/coreutils ]; then
-    export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
     export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
