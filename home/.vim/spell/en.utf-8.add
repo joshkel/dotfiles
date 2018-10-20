@@ -235,3 +235,6 @@ subclassed
 recurse
 PostgreSQL
 parsable
+GDPR
+X11
+shellcheck

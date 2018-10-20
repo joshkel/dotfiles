@@ -191,10 +191,6 @@ elif ! command -v ack >& /dev/null; then
 fi
 
 # make
-# Disable for now, since g++ added its own color support.
-#if which colormake >& /dev/null; then
-#    alias make=colormake
-#fi
 # See http://blog.jgc.org/2015/04/the-one-line-you-should-add-to-every.html
 alias dbgmake="\\make -f~/bin/Makefile.debug"
 
@@ -235,13 +231,16 @@ export GTEST_RUNNER="$HOME/.homesick/repos/gtpp/gtpp.py --failures-only"
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NODE_PATH:$HOME/.npm-packages/lib/node_modules"
 export NVM_DIR=~/.nvm
-if command -v brew >& /dev/null; then
-    nvm_prefix=$(brew --prefix nvm 2>/dev/null)
-    if [ ! -z "$nvm_prefix" ]; then
-        export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
-        source "$nvm_prefix"/nvm.sh
+# Enable NVM, if it was installed via Brew and not already enabled
+if ! type -t nvm >& /dev/null; then
+    if command -v brew >& /dev/null; then
+        nvm_prefix=$(brew --prefix nvm 2>/dev/null)
+        if [ ! -z "$nvm_prefix" ]; then
+            export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
+            source "$nvm_prefix"/nvm.sh
+        fi
+        unset nvm_prefix
     fi
-    unset nvm_prefix
 fi
 
 export PATH="$NPM_PACKAGES/bin":${PATH}
@@ -339,7 +338,7 @@ function fname() { find . -iname "*$@*"; }
 function lookuperror
 {
     cpp -dM /usr/include/errno.h | grep -w "$@"
-    perl -MPOSIX -e 'print strerror($ARGV[0])."\n";' $@
+    perl -MPOSIX -e 'print strerror($ARGV[0])."\n";' "$@"
 }
 
 export DEBFULLNAME="Josh Kelley"
