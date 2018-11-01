@@ -10,7 +10,7 @@
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
-export PATH=~/.cabal/bin:${PATH}:/sbin:/usr/sbin
+export PATH=~/.cabal/bin:~/.local/bin:${PATH}:/sbin:/usr/sbin
 
 # On macOS, use GNU stuff instead of BSD stuff, courtesy of Homebrew.
 if [ -d /usr/local/opt/findutils ]; then
