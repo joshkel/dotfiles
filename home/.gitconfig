@@ -48,4 +48,9 @@
 # difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
 [submodule]
 	fetchJobs = 4
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 # vim: noet
