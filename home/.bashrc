@@ -252,7 +252,11 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Python packages installed via `pip install --user`
 # See https://stackoverflow.com/a/38112757/25507
-python_site_dir=$(python3  -c "import site; print(site.USER_BASE)" 2>/dev/null)
+python_site_dir=$(python2 -c "import site; print(site.USER_BASE)" 2>/dev/null)
+if [ ! -z "$python_site_dir" ]; then
+    export PATH=$python_site_dir/bin:$PATH
+fi
+python_site_dir=$(python3 -c "import site; print(site.USER_BASE)" 2>/dev/null)
 if [ ! -z "$python_site_dir" ]; then
     export PATH=$python_site_dir/bin:$PATH
 fi
