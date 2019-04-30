@@ -145,6 +145,7 @@ alias fixssh='export $(tmux showenv SSH_AUTH_SOCK)'
 alias vless=/usr/share/vim/vim[0-9]*/macros/less.sh
 if [[ $(uname) == Darwin ]]; then
     alias gvim=/Applications/MacVim.app/Contents/bin/mvim
+    alias code="'/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code'"
 fi
 
 . ~/.homesick/repos/dotfiles/home/bin/upto.sh
@@ -235,7 +236,7 @@ export NVM_DIR=~/.nvm
 if ! type -t nvm >& /dev/null; then
     if command -v brew >& /dev/null; then
         nvm_prefix=$(brew --prefix nvm 2>/dev/null)
-        if [ ! -z "$nvm_prefix" ]; then
+        if [ -n "$nvm_prefix" ]; then
             export NPM_CONFIG_USERCONFIG=~/.npmrc-nvm
             source "$nvm_prefix"/nvm.sh
         fi
@@ -253,11 +254,11 @@ export PYTHONSTARTUP=~/.pythonrc
 # Python packages installed via `pip install --user`
 # See https://stackoverflow.com/a/38112757/25507
 python_site_dir=$(python2 -c "import site; print(site.USER_BASE)" 2>/dev/null)
-if [ ! -z "$python_site_dir" ]; then
+if [ -n "$python_site_dir" ]; then
     export PATH=$python_site_dir/bin:$PATH
 fi
 python_site_dir=$(python3 -c "import site; print(site.USER_BASE)" 2>/dev/null)
-if [ ! -z "$python_site_dir" ]; then
+if [ -n "$python_site_dir" ]; then
     export PATH=$python_site_dir/bin:$PATH
 fi
 unset python_site_dir
@@ -378,7 +379,7 @@ function update_x11_forwarding() {
     else
         local new_display
         new_display=$(cat ~/.display.txt)
-        if [ ! -z "$new_display" ]; then
+        if [ -n "$new_display" ]; then
             export DISPLAY=$new_display
         fi
     fi

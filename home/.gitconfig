@@ -1,6 +1,7 @@
 [user]
 	name = Josh Kelley
 	email = joshkel@gmail.com
+	signingKey = ""
 [core]
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
@@ -13,6 +14,13 @@
 	rebase = preserve
 [fetch]
 	prune = true
+# gpg, commit, and tag settings are from GitKraken
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
 [alias]
 	ci = commit
 	st = status
