@@ -194,6 +194,7 @@ endif
 " https://leanpub.com/deliberatevim
 " https://statico.github.io/vim3.html
 " https://coderoncode.com/tools/2017/04/16/vim-the-perfect-ide.html
+" https://www.hillelwayne.com/post/intermediate-vim/
 "
 " For Ctags in particular:
 " https://advancedweb.hu/2017/01/10/vim-scala-ag-ctags/
