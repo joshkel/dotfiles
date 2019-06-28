@@ -31,6 +31,11 @@ if command -v heroku >& /dev/null; then
     eval "$(heroku autocomplete:script bash)"
 fi
 
+# Kubernetes autocomplete
+if command -v kubectl >& /dev/null; then
+    source <(kubectl completion bash)
+fi
+
 # Sample of explicitly setting Java for Debian / Ubuntu.  Not needed.
 #export JAVA_HOME=/usr/lib/jvm/java-6-sun
 
