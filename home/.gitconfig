@@ -11,8 +11,7 @@
 [push]
 	default = simple
 [pull]
-# This was useful, but it interferes with pulling with uncommitted changes.
-#	rebase = preserve
+	rebase = true
 [fetch]
 	prune = true
 # gpg, commit, and tag settings are from GitKraken
