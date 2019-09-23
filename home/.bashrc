@@ -226,6 +226,9 @@ alias rbgrep='ack --ruby'
 alias histgrep='history | grep'
 
 
+# Docker
+alias dce='docker-compose exec'
+
 # Vagrant
 # See https://www.vagrantup.com/docs/other/wsl.html
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=1

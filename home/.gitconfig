@@ -51,7 +51,7 @@
 [difftool "icdiff"]
 	cmd = ~/bin/icdiff --line-numbers $LOCAL $REMOTE
 [difftool "bc"]
-	path = c:/Program Files/Beyond Compare 4/bcomp.exe
+	path = bcomp
 [pager]
 	difftool = true
 # difftool+icdiff configuration from http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
