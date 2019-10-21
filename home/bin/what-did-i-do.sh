@@ -5,9 +5,15 @@ set -e
 if [ -n "$1" ]; then
     when=$1
 else
-    when="1 days ago"
-    if [ "$(date +%u)" -eq 1 ]; then
-        when="4 days ago"
+    weekday=$(date +%u)
+    if [[ $weekday -eq 7 ]]; then
+        # On Sunday, evaluate Friday and Saturday.
+        when="2 days ago"
+    elif [[ $weekday -eq 1 ]]; then
+        # On Monday, evaluate Friday, Saturday, and Sunday.
+        when="3 days ago"
+    else
+        when="1 days ago"
     fi
 fi
 since="$(date -d "$when" +%Y-%m-%d) 12:00:00am"
