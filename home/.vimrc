@@ -174,6 +174,10 @@ if !empty(glob(expand("<sfile>:p:h") . "/.vim/bundle/syntastic"))
     let g:syntastic_python_checkers = ['flake8']
 
     let g:syntastic_sh_shellcheck_args = "-x"
+
+    " Treating .env files as shell scripts results in lots of spurious
+    " warnings.  Disable for now.
+    let g:syntastic_ignore_files = ['/.env$']
 endif
 
 " Other useful resources:
