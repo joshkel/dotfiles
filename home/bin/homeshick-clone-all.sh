@@ -31,7 +31,8 @@ clone mbalabin/Boost-Pretty-Printer
 
 ####
 # PHP
-clone DexterHD/codecept-bash-completion
+# Not currently used
+# clone DexterHD/codecept-bash-completion
 
 ####
 # Finish
