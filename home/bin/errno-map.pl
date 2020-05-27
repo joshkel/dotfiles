@@ -5,7 +5,12 @@ use POSIX qw(strerror);
 
 my %errno;
 
-open ERRNO, "cpp -dM /usr/include/errno.h |";
+my $root = '/';
+if (-x '/usr/bin/xcrun') {
+    $root = `/usr/bin/xcrun --show-sdk-path`;
+    chomp $root;
+}
+open ERRNO, "cpp -dM \"$root/usr/include/errno.h\" |";
 while (<ERRNO>) {
 	if (/^#define (E[A-Z]+) (\d+)$/) {
 		$errno{$2} = $1;
