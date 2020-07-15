@@ -395,7 +395,8 @@ function update_x11_forwarding() {
 
 PROMPT_COMMAND="update_x11_forwarding; $PROMPT_COMMAND"
 
-# Optional machine-specific aliases
+# Optional machine-specific aliases and environment variables
+test -f ~/.env && . ~/.env
 test -f ~/.bashrc.local && . ~/.bashrc.local
 
 # Sample Powerline configuration.  This assumes that you ran
