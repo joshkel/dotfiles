@@ -323,6 +323,12 @@ alias be='bundle exec'
 alias svn-stash='python ~/.homesick/repos/svn-stash/svn-stash.py'
 alias svn-icdiff='svn diff --diff-cmd=icdiff'
 
+# Within Git-Bash, remove the winpty node alias, to fix errors about
+# "stdout is not a tty" - https://stackoverflow.com/a/62532536/25507
+if alias | grep -q 'node.*winpty'; then
+    unalias node
+fi
+
 # Enable programmable completion.  May already be done in /etc/bash.bashrc.
 if [ -f /etc/bash_completion ]; then
     # shellcheck disable=1091
