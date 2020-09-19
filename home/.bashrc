@@ -5,7 +5,6 @@
 # Comment out for now; having non-interactive aliases is useful
 #[[ "$-" != *i* ]] && return
 
-
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
@@ -402,7 +401,11 @@ function update_x11_forwarding() {
 PROMPT_COMMAND="update_x11_forwarding; $PROMPT_COMMAND"
 
 # Optional machine-specific aliases and environment variables
-test -f ~/.env && . ~/.env
+if [ -f ~/.env ]; then
+    set -a
+    . ~/.env
+    set +a
+fi
 test -f ~/.bashrc.local && . ~/.bashrc.local
 
 # Sample Powerline configuration.  This assumes that you ran
