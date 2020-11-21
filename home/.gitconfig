@@ -27,7 +27,8 @@
 	unstage = reset HEAD
 	showtool = "!f() { git difftool $1^ $1; }; f"
 	added = difftool --cached
-	lol = log --oneline --graph --decorate --all
+	lol = log --oneline --graph --decorate --abbrev-commit
+	lols = log --oneline --graph --decorate --all --abbrev-commit
 	lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
 	ignore = update-index --skip-worktree
 	unignore = update-index --no-skip-worktree
