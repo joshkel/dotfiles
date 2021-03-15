@@ -398,6 +398,12 @@ function update_x11_forwarding() {
     fi
 }
 
+# Android for Mac
+if [ -d ~/Library/Android/sdk/platform-tools ]; then
+    export PATH=$PATH:~/Library/Android/sdk/platform-tools
+    alias systrace=~/Library/Android/sdk/platform-tools/systrace/systrace.py
+fi
+
 PROMPT_COMMAND="update_x11_forwarding; $PROMPT_COMMAND"
 
 # Optional machine-specific aliases and environment variables

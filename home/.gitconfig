@@ -14,6 +14,8 @@
 	rebase = true
 [fetch]
 	prune = true
+[init]
+	defaultBranch = master
 # gpg, commit, and tag settings are from GitKraken
 [gpg]
 	program = gpg
