@@ -1,6 +1,6 @@
 syntax on
 set t_Co=256
-set ts=4 sw=4 softtabstop=4 is autoindent et modeline title
+set ts=4 sw=4 softtabstop=4 is autoindent et modeline modelines=2 title
 set backspace=indent,eol,start
 set enc=utf-8
 " Buggy in MacVim
