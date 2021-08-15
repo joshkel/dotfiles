@@ -257,6 +257,9 @@ export PATH="$NPM_PACKAGES/bin":${PATH}
 
 # Python
 export PYTHONSTARTUP=~/.pythonrc
+if [ -d ~/.pyenv ]; then
+    eval "$(pyenv init -)"
+fi
 
 # Python packages installed via `pip install --user`
 # See https://stackoverflow.com/a/38112757/25507
