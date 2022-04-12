@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Resolve a Get merge conflict with yarn.lock
+
+set -e
+
+git restore --staged yarn.lock
+git restore yarn.lock
+yarn
+git add yarn.lock

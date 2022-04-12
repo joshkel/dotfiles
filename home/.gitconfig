@@ -25,6 +25,7 @@
 	forceSignAnnotated = false
 [alias]
 	ci = commit
+	co = checkout
 	st = status
 	unstage = reset HEAD
 	showtool = "!f() { git difftool $1^ $1; }; f"
