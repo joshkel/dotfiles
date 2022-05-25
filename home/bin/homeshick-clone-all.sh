@@ -26,8 +26,8 @@ clone gibrown/svn-stash
 # C++
 clone joshkel/gtpp
 
-# This is currently the newest fork of Boost-Pretty-Printer.
-clone mbalabin/Boost-Pretty-Printer
+# Not currently used
+# clone mbalabin/Boost-Pretty-Printer
 
 ####
 # PHP
