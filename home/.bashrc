@@ -89,6 +89,8 @@ cygwin)
     ;;
 esac
 
+alias g=git
+
 # git-aware-prompt - https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT=~/.homesick/repos/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"

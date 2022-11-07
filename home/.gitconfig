@@ -29,6 +29,7 @@
 	ci = commit
 	co = checkout
 	st = status
+	br = branch
 	unstage = reset HEAD
 	showtool = "!f() { git difftool $1^ $1; }; f"
 	added = difftool --cached
