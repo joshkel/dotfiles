@@ -8,6 +8,9 @@
 # This makes it a lot less painful to mix Cygwin git and Git for Windows on
 # Windows repositories.
 	whitespace = cr-at-eol
+# https://github.blog/2022-06-27-highlights-from-git-2-37/.  In practice, this
+# seems to be slightly slower.
+#	fsmonitor = true
 [push]
 	default = simple
 [pull]
@@ -25,6 +28,7 @@
 	gpgSign = false
 [tag]
 	forceSignAnnotated = false
+	sort = version:refname
 [alias]
 	ci = commit
 	co = checkout

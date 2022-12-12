@@ -247,3 +247,6 @@ Ansible
 ansible
 nginx
 ESLint
+SHA
+worktree
+worktrees
