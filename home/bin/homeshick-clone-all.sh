@@ -20,7 +20,7 @@ clone jimeh/tmux-themepack
 
 # gibrown fork is newer.  Unfortunately, neither works well.
 #clone frankcortes/svn-stash
-clone gibrown/svn-stash
+# clone gibrown/svn-stash
 
 ####
 # C++
