@@ -13,6 +13,8 @@
 #	fsmonitor = true
 [push]
 	default = simple
+# https://stackoverflow.com/a/65839129/25507
+	useForceIfIncludes = true
 [pull]
 	rebase = true
 [fetch]
