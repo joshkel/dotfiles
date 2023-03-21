@@ -36,6 +36,7 @@
 	co = checkout
 	st = status
 	br = branch
+	pfwl = push --force-with-lease
 	unstage = reset HEAD
 	showtool = "!f() { git difftool $1^ $1; }; f"
 	added = difftool --cached

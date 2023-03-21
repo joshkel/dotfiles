@@ -158,3 +158,9 @@ if [ -f ~/.iterm2_shell_integration.zsh ]; then
     source ~/.iterm2_shell_integration.zsh
 fi
 
+# Customize oh-my-zsh yarn plugin: 'y' is too common to alias
+unalias y
+
+# https://stackoverflow.com/a/63931554/25507
+unsetopt nomatch
+
