@@ -164,3 +164,11 @@ unalias y
 # https://stackoverflow.com/a/63931554/25507
 unsetopt nomatch
 
+# https://andrew-quinn.me/fzf/
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# https://github.com/junegunn/fzf/blob/547e101f1d6bf326d286bac0fb3272738a92a67f/shell/key-bindings.zsh#L43
+export FZF_CTRL_T_COMMAND="command find -L . -mindepth 1 \\( -path '*/\\.*' -o -path '*/node_modules/*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+    -o -type f -print \
+    -o -type d -print \
+    -o -type l -print 2> /dev/null | cut -b3-"

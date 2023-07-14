@@ -429,3 +429,5 @@ test -f ~/.bashrc.local && . ~/.bashrc.local
 #    POWERLINE_BASH_SELECT=1
 #    . $(python3 -m site --user-site)/powerline/bindings/bash/powerline.sh
 #fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

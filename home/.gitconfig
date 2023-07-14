@@ -52,6 +52,8 @@
 # https://stackoverflow.com/q/39220870/25507
     unpushed1 = for-each-ref --format="%(refname:short) %(push:track)" refs/heads
 	unpushed2 = git log --branches --not --remotes --no-walk --decorate --oneline
+# https://stackoverflow.com/a/44562371/25507
+	tag-dates = tag --format='%(creatordate:short)%09%(refname:strip=2)' --sort=creatordate
 # Further ideas: http://gggritso.com/human-git-aliases,
 # https://gist.github.com/tdd/470582
 [diff]
