@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# https://prefetch.net/blog/2020/07/14/decoding-json-web-tokens-jwts-from-the-linux-command-line/
+jq -R 'split(".") | .[0],.[1] | @base64d | fromjson'
