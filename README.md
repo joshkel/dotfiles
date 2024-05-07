@@ -20,3 +20,5 @@ EOF
 . .bashrc
 vim +PluginInstall +qall
 ```
+
+(If starting from scratch, [chezmoi](https://www.chezmoi.io/) might be better than [homeshick](https://github.com/andsens/homeshick).)
