@@ -111,7 +111,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-alias ls=exa
+alias ls=eza
 
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/findutils/libexec/gnubin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:"~/bin
 export NVM_DIR="$HOME/.nvm"

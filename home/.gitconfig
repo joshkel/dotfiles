@@ -5,29 +5,38 @@
 [core]
 	safecrlf = true
 	excludesfile = ~/.gitignore_global
+	pager = delta
 # This makes it a lot less painful to mix Cygwin git and Git for Windows on
 # Windows repositories.
 	whitespace = cr-at-eol
 # https://github.blog/2022-06-27-highlights-from-git-2-37/.  In practice, this
 # seems to be slightly slower.
 #	fsmonitor = true
+[branch]
+	sort = -committerdate
+[grep]
+	patternType = perl
 [push]
 	default = simple
 # https://stackoverflow.com/a/65839129/25507
 	useForceIfIncludes = true
+# https://stackoverflow.com/a/53322776/25507, https://jvns.ca/blog/2024/02/16/popular-git-config-options/
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [fetch]
 	prune = true
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [init]
-	defaultBranch = master
+	defaultBranch = main
 # gpg, commit, and tag settings are from GitKraken
 [gpg]
 	program = gpg
 [commit]
 	gpgSign = false
+# https://jvns.ca/blog/2024/02/16/popular-git-config-options/
+	verbose = true
 [tag]
 	forceSignAnnotated = false
 	sort = version:refname
@@ -54,6 +63,8 @@
 	unpushed2 = git log --branches --not --remotes --no-walk --decorate --oneline
 # https://stackoverflow.com/a/44562371/25507
 	tag-dates = tag --format='%(creatordate:short)%09%(refname:strip=2)' --sort=creatordate
+# Log human activity (no bots)
+	lh = log --perl-regexp --author='^((?!Renovate).*)$' --invert-grep --grep='Merge branch .renovate'
 # Further ideas: http://gggritso.com/human-git-aliases,
 # https://gist.github.com/tdd/470582
 [diff]
