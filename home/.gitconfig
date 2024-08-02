@@ -23,7 +23,7 @@
 # https://stackoverflow.com/a/53322776/25507, https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 	autoSetupRemote = true
 [pull]
-	rebase = true
+	rebase = merges
 [fetch]
 	prune = true
 [merge]
