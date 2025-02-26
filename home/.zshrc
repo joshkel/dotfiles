@@ -121,6 +121,9 @@ export NVM_DIR="$HOME/.nvm"
 if [ -d ~/Library/Python/3.9/bin ]; then
     export PATH="$PATH":~/Library/Python/3.9/bin
 fi
+if [ -d /opt/homebrew/opt/postgresql@16/bin ]; then
+    export PATH=/opt/homebrew/opt/postgresql@16/bin:"$PATH"
+fi
 
 if [ -f ~/.env ]; then
     # https://stackoverflow.com/a/30969768/25507
@@ -159,7 +162,7 @@ if [ -f ~/.iterm2_shell_integration.zsh ]; then
 fi
 
 # Customize oh-my-zsh yarn plugin: 'y' is too common to alias
-unalias y
+# unalias y
 
 # https://stackoverflow.com/a/63931554/25507
 unsetopt nomatch

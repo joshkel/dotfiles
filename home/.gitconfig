@@ -12,6 +12,8 @@
 # https://github.blog/2022-06-27-highlights-from-git-2-37/.  In practice, this
 # seems to be slightly slower.
 #	fsmonitor = true
+[column]
+	ui = auto
 [branch]
 	sort = -committerdate
 [grep]
@@ -26,8 +28,14 @@
 	rebase = merges
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 [merge]
 	conflictstyle = zdiff3
+[rebase]
+	autosquash = true
+	autostash = true
+	updateRefs = true
 [init]
 	defaultBranch = main
 # gpg, commit, and tag settings are from GitKraken
@@ -40,6 +48,8 @@
 [tag]
 	forceSignAnnotated = false
 	sort = version:refname
+[help]
+	autocorrect = prompt
 [alias]
 	ci = commit
 	co = checkout
@@ -68,10 +78,12 @@
 # Further ideas: http://gggritso.com/human-git-aliases,
 # https://gist.github.com/tdd/470582
 [diff]
-	algorithm = patience
+	algorithm = histogram
+	colorMoved = plain
 	mnemonicPrefix = true
 	tool = icdiff
 	wsErrorHighlight = all
+	renames = true
 [difftool]
 	prompt = false
 [difftool "icdiff"]
